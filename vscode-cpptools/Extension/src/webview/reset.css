@@ -1,14 +1,13 @@
 html {
 	box-sizing: border-box;
 	font-size: 13px;
-	font-family: ;
 }
 
 *,
 *:before,
 *:after {
 	box-sizing: inherit;
-	color: white;
+	color: var(--vscode-foreground);
 }
 
 body,
@@ -26,7 +25,23 @@ ul {
 	font-weight: normal;
 }
 
-.toggle:not(.toggled) * {
+li{
+	list-style-type: none;
+}
+
+.key{
+	color: #c586c0;
+}
+
+.value{
+	color: #b5cea8;
+}
+
+.toggable {
+	margin-left: 0.5rem;
+}
+
+*:not(.toggled) > .toggable {
 	display: none;
 }
 
@@ -35,8 +50,8 @@ ul {
 	cursor: pointer; 
 }
 
-.toggle ** {
-    color: white;
+.toggle * {
+    color: var(--vscode-foreground);
 }
 
 img {

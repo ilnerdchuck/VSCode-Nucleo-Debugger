@@ -113,38 +113,45 @@ export class NucleoInfo {
 		let processListJson = JSON.parse(this.process_list);
 		console.log(processListJson);
 		let source = `
-		<div>
-			<h3 id="process_title">Processi in esecuzione:</h3>
+		<div class="">
+			<h3 class="toggle">PROCESSI IN ESECUZIONE</h3>
+			<div class="toggable">
 				{{#each process}}
-					<h3 class="p-title"id="p-title-{{@key}}">Processo: {{@key}}</h3>
-					<ul class="p-dump" id="p-list-{{@key}}">
-						<li class="p-item" id="p-item-{{pid}}">Pid: {{pid}}</li>			
-						<li class="p-item" id="p-item-{{livello}}">Livello: {{livello}}</li>			
-						<li class="p-item" id="p-item-{{corpo}}">Corpo: {{corpo}}</li>			
-						<li class="p-item" id="p-item-{{rip}}">Rip: {{rip}}</li>
-						<li class="p-ca-dump-list toggle" >Campi Aggiuntivi: 
-							<ul id="p-ca-list-{{@key}}">
-								{{#each campi_aggiuntivi}}
-									<li class="p-dmp-item">{{@key}}: {{this}}</li>
-								{{/each}}
-							</ul>
-						</li>
-						<li class="p-dump-list toggle" >Pila Dump: 
-							<ul id="p-pd-list">
-								{{#each pila_dmp}}
-									<li class="p-dmp-item">{{@key}}: {{this}}</li>
-								{{/each}}
-							</ul>
-						</li>
-						<li class="p-dump-list toggle" >Registers Dump: 
-							<ul id="p-rd-list">
-								{{#each reg_dmp}}
-									<li class="p-dmp-item">{{@key}}: {{this}}</li>
-								{{/each}}
-							</ul>
-						</li>
-					</ul>
+					<div class="">
+						<h3 class="p-title toggle">[{{@key}}]</h3>
+						<ul class="p-dump toggable">
+							<li class="p-item"><span class="key"> pid = </span> <span class="value">{{pid}}</span></li>			
+							<li class="p-item"><span class="key"> livello = </span> <span class="value">{{livello}}</span></li>			
+							<li class="p-item"><span class="key"> corpo = </span> <span class="value">{{corpo}}</span></li>			
+							<li class="p-item"><span class="key"> rip = </span> <span class="value">{{rip}}</span></li>
+							<li class="p-ca-dump-list" >
+								<div class="toggle">Campi Aggiuntivi</div> 
+								<ul class="toggable">
+									{{#each campi_aggiuntivi}}
+										<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+									{{/each}}
+								</ul>
+							</li>
+							<li class="p-dump-list "> 
+								<div class="toggle">Pila Dump</div> 
+								<ul class="toggable">
+									{{#each pila_dmp}}
+										<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+									{{/each}}
+								</ul>
+							</li>
+							<li class="p-dump-list"> 
+								<div class="toggle">Registers Dump</div> 
+								<ul class="toggable">
+									{{#each reg_dmp}}
+										<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+									{{/each}}
+								</ul>
+							</li>
+						</ul>
+					</div>
 				{{/each}}
+			</div>
 		</div>
 		`;
 
