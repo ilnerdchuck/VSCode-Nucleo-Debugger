@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch nmd",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/sistema",
+            "cwd": "${workspaceFolder}",
+            "miDebuggerPath": "gdb",
+            "stopAtEntry": true,
+            "preLaunchTask": "run",
+            "setupCommands": [
+                {"text": "cd ${workspaceFolder}"},
+                {
+                    "text": "source .gdbinit",
+                    "ignoreFailures": true
+                },           
+            ],
+        }
+    ]
+}

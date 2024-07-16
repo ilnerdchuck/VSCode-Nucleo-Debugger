@@ -1,0 +1,18 @@
+set print static off
+set print pretty on
+set print array on
+set pagination off
+file build/sistema
+source util/start.gdb
+add-symbol-file @CE_QEMU_BOOT@
+add-symbol-file build/io
+add-symbol-file build/utente
+set arch i386:x86-64:intel
+target remote gdb-socket
+set wait_for_gdb=0
+break sistema.s:start
+continue
+delete 1
+source @CE_LIB64@/libce-debug.py
+source debug/nucleo.py
+context

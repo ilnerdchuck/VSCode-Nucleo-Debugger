@@ -1,0 +1,37 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduzione}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contesto e motivazione}{3}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Ambiente e strumenti}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Il debugger - GDB e QEMU}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Quick emulator - QEMU}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}GNU Debugger - GDB}{5}{subsection.2.1.2}%
+\contentsline {subsubsection}{Breakpoints}{5}{section*.3}%
+\contentsline {subsubsection}{Continue & Stop}{6}{section*.4}%
+\contentsline {subsubsection}{Step Over}{6}{section*.5}%
+\contentsline {subsubsection}{Step In}{6}{section*.6}%
+\contentsline {subsubsection}{Step Out}{6}{section*.7}%
+\contentsline {subsubsection}{Watch delle variabili}{6}{section*.8}%
+\contentsline {subsubsection}{Call Stack}{6}{section*.9}%
+\contentsline {section}{\numberline {2.2}L'architettura del debugger di VS Code}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Debug Adapter - DP}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Debug Adapter Protocol- DAP}{6}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Estensione CppTools}{6}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Webview di VS Code}{6}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Requisiti dell'estensione di debug}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Funzionalità di debug}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Analisi dello stato del nucleo}{9}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Implementazione}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Event listener}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Webview}{11}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Update Webview}{11}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Custom Debug Adapter request}{11}{subsection.4.2.2}%
+\contentsline {chapter}{\numberline {5}Utilizzo del debugger}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Breakpoint}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Continue & Pause}{13}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Step Over, Step In e Step Out}{13}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Informazioni aggiuntive}{13}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Conclusioni}{15}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Sviluppi futuri}{17}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Codice}{18}{section.7.1}%
+\contentsline {chapter}{\numberline {A}Ringraziamenti}{19}{appendix.Alph1}%

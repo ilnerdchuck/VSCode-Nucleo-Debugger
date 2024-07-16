@@ -1,0 +1,67 @@
+Aggiungiamo al nucleo il meccanismo delle {\em barriere con timeout}.
+
+Una barriera {\em senza} timeout serve a sincronizzare un certo
+numero di processi e
+funziona nel modo seguente: la barriera \`e normalmente chiusa;
+un processo che arriva alla barriera si blocca;
+la barriera si apre solo quando sono arrivati tutti i processi attesi, che a
+quel punto si sbloccano; una volta aperta e sbloccati tutti i processi,
+la barriera si richiude e il meccanismo si ripete.
+
+Il timeout cambia le cose nel seguente modo:
+\begin{itemize}
+  \item il primo processo che arriva alla barriera dopo una chiusura fa partire il timeout;
+  \item se tutti gli altri processi attesi arrivano prima dello scatto
+    del timeout, la barriera si comporta normalmente (si apre, tutti
+    i processi si sbloccano e poi la barriera si richiude);
+  \item altrimenti la barriera entra in uno stato ``erroneo'':
+    si apre (quindi,  processi gi\`a arrivati 
+    si risvegliano) e resta aperta fino a quando non sono arrivati
+    tutti i processi attesi, ma tutti i processi la attraversano
+    ricevendo un errore; quando arriva l'ultimo processo, la barriera
+    esce dallo stato erroneo e si richiude.
+\end{itemize}
+{\bf Nota}: sopra e nel seguito, dove diciamo ``dall ultima chiusura'', intendiamo
+anche l'istante in cui la barriera \`e stata creata.
+
+Per rappresentare una barriera introduciamo la seguente struttura dati:
+\begin{verbatim}
+    struct barrier_t {
+        natl nproc;
+        natl narrived;
+        natl timeout;
+        bool bad;
+        des_proc *waiting;
+        des_proc *first;
+    };
+\end{verbatim}
+Dove: \verb|nproc| \`e il numero di processi che devono sincronizzarsi sulla barriera;
+\verb|narrived| conta i processi arrivati alla barriera dall'ultima chiusura;
+\verb|timeout| \`e il timeout che regola l'entrata
+nello stato erroneo; \verb|bad| \`e true se e solo se la barriera si trova nello stato erroneo;
+\verb|waiting| \`e la coda dei processi che attendono
+l'apertura della barriera; \verb|first| punta al descrittore del primo processo arrivato dall'ultima chiusura
+(quello che ha avviato il timeout corrente).
+
+Aggiungiamo anche il seguente campo ai descrittori di processo:
+\begin{verbatim}
+    natl barrier_id;
+\end{verbatim}
+Se questo campo \`e diverso da 0xFFFFFFFF, vuol dire che questo processo \`e bloccato
+sulla barriera con identificatore \verb|barrier_id|, ed \`e il primo processo ad essere arrivato
+su quella barriera dall'ultima chiusura.
+
+Aggiungiamo inoltre le seguenti primitive:
+\begin{itemize}
+  \item \verb|natl barrier_create(natl nproc, natl timeout)| (gi\`a realizzata):
+   	crea una nuova barriera che sincronizza \verb|nproc| processi con timeout \verb|timeout|
+	e ne restituisce l'identificatore (\verb|0xFFFFFFFF| se non \`e stato possibile completare l'operazione).
+   \item \verb|bool barrier(natl id)| (da realizzare):
+   	fa giungere il processo corrente alla barriera di identificatore \verb|id|. \`E un errore
+	se tale barriera non esiste. Restituisce \verb|true| quando termina normalmente, e \verb|false|
+	quando termina perch\`e la barriera \`e stata attraversata nello stato erroneo.
+\end{itemize}
+
+Le primitive abortiscono il processo chiamante in caso di errore e tengono conto della priorit\`a tra i processi.
+
+Modificare i file \verb|sistema.cpp| e \verb|sistema.s| in modo da realizzare le primitive mancanti.

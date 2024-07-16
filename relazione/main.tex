@@ -1,0 +1,84 @@
+\documentclass[a4paper, twoside,openright]{report}
+
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[english,italian]{babel}
+\usepackage[fixlanguage]{babelbib}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usepackage{rotating}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\bibliography{chapters/bibliografia.bib}
+% -----------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\rightmark}
+\rhead{\textbf{\thepage}}
+\fancyfoot{}
+\setlength{\headheight}{12.5pt}
+
+% Rimuove il numero di pagina all'inizio dei capitoli
+\fancypagestyle{plain}{
+  \fancyfoot{}
+  \fancyhead{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+
+
+% Modifica dello stile dei riferimenti, con il testo in cyano
+\hypersetup{
+    colorlinks,
+    linkcolor=CornflowerBlue,
+    citecolor=CornflowerBlue
+}
+
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{theorem}{Teorema}[section]
+\providecommand*\definitionautorefname{Definizione}
+\providecommand*\theoremautorefname{Teorema}
+\providecommand*{\listingautorefname}{Listing}
+\providecommand*\lstnumberautorefname{Linea}
+
+\raggedbottom
+
+
+
+
+% -----------------------------------------------------------------
+\begin{document}
+
+\include{chapters/frontespizio}
+\include{chapters/chapter_00}
+\tableofcontents
+\setcounter{page}{1}
+\include{chapters/chapter_01}
+\include{chapters/chapter_02}
+\include{chapters/chapter_03}
+\include{chapters/chapter_04}
+\include{chapters/chapter_05}
+\include{chapters/chapter_06}
+\include{chapters/chapter_07}
+\include{chapters/chapter_08}
+
+
+% Rimuovere se non si vuole la tabella delle figure
+% \listoffigures
+
+\appendix
+
+\bibliographystyle{plainnat}
+\include{chapters/ringrazia}
+\end{document}
+% -----------------------------------------------------------------

@@ -1,0 +1,175 @@
+#!/bin/bash
+#============================================================================
+# Lancia una macchina virtuale QEMU che esegue il sistema.
+#
+# Con l'opzione '-g' il sistema si fermerà in attesa del collegamento dal
+# debugger. Eventuali altre opzioni sono passate direttamente a QEMU
+# (per es. '-enable-kvm').
+#
+# Alcune opzioni possono essere impostate tramite variabili di ambiente.  Le
+# seguenti modificano il comportamento dello script se sono definite con un
+# qualunque valore (per es. 1):
+#
+#   CERAW:    non convertire gli indirizzi in file/numero di riga
+#   CECOLOR:  colora i messaggi del log in base al loro livello
+#   AUTOCORR: non emulare il monitor
+#   CECURSES: usa il terminale come monitor e log.txt per i messaggi di log
+#
+# Per esempio:
+#
+#   CERAW=1 CECOLOR=1 ./run
+#
+# AUTOCORR permette di eseguire il sistema redirigendo tutto l'output sul log.
+# È usata nel sito dell'autocorrezione, ma a volte è comoda anche mentre si
+# sviluppa. Attenzione: funziona solo se anche i moduli sono stati compilati
+# con questa opzione. Per attivarla conviene operare così:
+#
+#   export AUTOCORR=1
+#   make reset
+#   make
+#   ./run
+#
+# Per disattivarla operare come sopra, con 'unset AUTOCORR' al posto di
+# 'export AUTOCORR=1'.
+#
+# Le rimanenti variabili di ambiente servono a configurare situazioni
+# più particolari:
+#
+#   CEHDPATH: percorso del file che emula l'hard disk
+#   QEMU: percorso dell'emulatore QEMU
+#   CE_QEMU_BOOT: percorso del boot loader
+#   QEMU_FIFOS: quali FIFO creare (per l'emulazione delle periferiche)
+#   QEMU_PRE_CMD: pipeline a monte di QEMU
+#   QEMU_EXTRA_OPTIONS: eventuali altre opzioni da passare a QEMU
+#   QEMU_POST_CMD: pipeline a valle di QEMU (incompatibile con CERAW)
+#
+# Le variabili possono anche essere definite nel file conf/conf.sh
+#=============================================================================
+
+
+# se il file conf/conf.sh esiste, carichiamolo
+[ -f conf/conf.sh ] && source conf/conf.sh
+
+# cerca di trovare QEMU.
+# Alcuni esercizi richiedono la versione modificata di QEMU (qemu-ce), ma
+# altri no. Proviamo a cercare la versione modificata e, se non la troviamo,
+# proviamo con quella normale.
+find_qemu() {
+	# se la variabile QEMU è definita, usiamo quella
+	[ -n "$QEMU" ] && return
+
+	local b=qemu-system-x86_64
+
+	# altrimenti vediamo se esiste un file eseguibile nel percorso locale
+	# (usato nelle installazioni normali)
+	QEMU=$HOME/CE/bin/$b
+	[ -x "$QEMU" ] && return
+
+	# altrimenti nel percorso globale (usato sul sito dell'autocorrezione)
+	QEMU=/usr/local/CE/bin/$b
+	[ -x "$QEMU" ] && return
+
+	# altrimenti proviamo ad eseguire il QEMU di default (gli esercizi
+	# sul modulo I/O potrebbero non funzionare)
+	QEMU=$b
+}
+
+# cerca il boot loader.
+find_boot() {
+	# se è definita la variable QEMU_BOOT, usiamo quella
+	[ -n "$CE_QEMU_BOOT" ] && return
+
+	# altrimenti lo cerchiamo in una serie di directory possibili
+	# (dipende da dove è stata installata libce)
+	for d in $HOME/CE /usr/local/CE /usr/CE /usr/local /usr /; do
+		CE_QEMU_BOOT=$d/lib/ce/boot.bin
+		[ -f "$CE_QEMU_BOOT" ] && return
+	done
+
+	# non possiamo proseguire senza boot loader
+	echo "non riesco a trovare boot.bin (libce e' installata?)"
+	exit 1
+}
+
+# 'cmd' conterrà il comando QEMU da lanciare
+cmd=
+find_qemu
+find_boot
+CEHDPATH=${CEHDPATH:-$HOME/CE/share/hd.img}
+# util/start.mk è creato durante la compilazione e definisce la variabile MEM
+# (quantità di memoria RAM in MiB) in base alla costante definita in
+# include/costanti.h
+source util/start.mk
+
+# creiamo eventuali FIFO per permettere a QEMU di dialogare con gli emulatori
+# di periferiche
+if [ -n "$QEMU_FIFOS" ]; then
+	for f in $QEMU_FIFOS; do
+		rm -f $f.in $f.out
+		mkfifo $f.in $f.out
+	done
+fi
+
+# Comando per lanciare QEMU. Usiamo CE_QEMU_BOOT come "kernel" e carichiamo tutti
+# i nostri moduli in memoria. Le altre opzioni sono:
+#
+#   -net none: non emulare l'interfaccia di rete
+#   -no-reboot: esegui sempre shutdown invece di riavviare
+#   -m $MEM: emula $MEM MiB di memoria
+#
+cmd="$QEMU_PRE_CMD $QEMU \
+	-kernel $CE_QEMU_BOOT \
+	-initrd build/sistema.strip,build/io.strip,build/utente.strip \
+	-net none \
+	-no-reboot \
+	$QEMU_EXTRA_OPTIONS \
+	-m $MEM"
+
+# Con l'opzione '-g' passiamo '-s' al boot loader
+if [ "$1" == -g ]; then
+	cmd="$cmd -s -append \"-s\""
+	shift
+fi
+
+# ripristiniamo il terminale all'uscita (QEMU potrebbe lasciarlo in uno stato
+# poco usabile in caso di errore)
+trap 'stty sane' exit
+
+# nella modalità AUTOCORR non facciamo partire la finestra che emula il
+# monitor.
+if [ -n "$AUTOCORR" ]; then
+	cmd="$cmd -nographic"
+elif [ -n "$CECURSES" ]; then
+	CERAW=1
+	CECOLOR=
+	cmd="$cmd -display curses -serial file:log.txt"
+else
+	cmd="$cmd -serial stdio"
+fi
+
+# se CEHDPAT è definita aggiungiamo l'emulazione dell'hard disk
+if [ -f "$CEHDPATH" ]; then
+	cmd="$cmd -drive file=\"$CEHDPATH\",index=0,format=raw"
+fi
+
+# passiamo tutte le altre opzioni ($@) a QEMU
+cmd="$cmd $@"
+
+# se CERAW non è definita facciamo post-processare i messaggi inviati
+# sul log a $QEMU_POST_CMD. Per default usiamo lo script util/show_log.pl,
+# che cerca di convertire gli indirizzi in "file:numero di riga".
+if [ -n "$CERAW" ]; then
+	show_log=
+else
+	show_log=${QEMU_POST_CMD:-"| util/show_log.pl"}
+fi
+
+# se CECOLOR è definita aggiungiamo anche lo script util/colorlog.awk,
+# che colora le linee del log in base al primo campo (INF, WRN, ecc.)
+if [ -n "$CECOLOR" ]; then
+	show_log="$show_log | awk -f util/colorlog.awk"
+fi
+
+# mostriamo cosa stiamo per eseguire ed eseguiamolo
+echo Eseguo: $cmd $show_log
+eval $cmd $show_log
