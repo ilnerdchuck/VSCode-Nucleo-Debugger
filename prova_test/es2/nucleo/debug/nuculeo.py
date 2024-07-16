@@ -177,24 +177,23 @@ def process_dump(pid, proc, indent=0, verbosity=3):
     rip = readfis(stack)
     rip_s = "{}".format(gdb.Value(rip).cast(void_ptr_type)).split()
     proc_dmp['rip'] = "{:>18s} {}".format(rip_s[0], " ".join(rip_s[1:]))
-    if (verbosity > 2):
-        pila_dmp = {}
-        pila_dmp['start'] = "{:016x} \u279e {:x}):\n".format(vstack, stack)
-        pila_dmp['cs'] =  dump_selector(readfis(stack + 8))
-        pila_dmp['rflags'] = dump_flags(readfis(stack + 16))  
-        pila_dmp['rsp'] = "{:#18x}".format(readfis(stack + 24)) 
-        pila_dmp['ss'] = dump_selector(readfis(stack + 32)) 
-        proc_dmp['pila_dmp'] = pila_dmp  
-        
-        reg_dmp ={}
-        for i, r in enumerate(registers):
-            reg_dmp[r] = hex(toi(proc['contesto'][i]))
-        proc_dmp['reg_dmp'] = reg_dmp  
+    pila_dmp = {}
+    pila_dmp['start'] = "{:016x} \u279e {:x}):\n".format(vstack, stack)
+    pila_dmp['cs'] =  dump_selector(readfis(stack + 8))
+    pila_dmp['rflags'] = dump_flags(readfis(stack + 16))  
+    pila_dmp['rsp'] = "{:#18x}".format(readfis(stack + 24)) 
+    pila_dmp['ss'] = dump_selector(readfis(stack + 32)) 
+    proc_dmp['pila_dmp'] = pila_dmp  
+    
+    reg_dmp ={}
+    for i, r in enumerate(registers):
+        reg_dmp[r] = hex(toi(proc['contesto'][i]))
+    proc_dmp['reg_dmp'] = reg_dmp  
 
-        cr3 = toi(proc['cr3'])
-        proc_dmp['cr3'] = vm_paddr_to_str(cr3)
+    cr3 = toi(proc['cr3'])
+    proc_dmp['cr3'] = vm_paddr_to_str(cr3)
 
-        # proc_dmp['nex_ist'] = show_lines(gdb.find_pc_line(rip), indent)
+    # proc_dmp['nex_ist'] = show_lines(gdb.find_pc_line(rip), indent)
     if len(toshow) > 0:
         campi_aggiuntivi = {}
         for f in toshow:
