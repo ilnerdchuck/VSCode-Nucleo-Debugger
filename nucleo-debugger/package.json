@@ -1,0 +1,67 @@
+{
+  "name": "nucleo-debugger",
+  "displayName": "Nucleo Debugger",
+  "description": "Estensione per il debug del nucleo multiprogrammato ",
+  "icon": "media/unipi-logo-png-3.png",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "author": {
+    "name": "Giuseppe Lettieri"
+  },
+  "categories": [
+    "Programming Languages",
+    "Debuggers",
+    "Other"
+  ],
+  "bugs": {
+    "url": "https://github.com/ilnerdchuck/VSCode-Nucleo-Debugger/issues",
+    "email": "c_cpp_support@microsoft.com"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/ilnerdchuck/VSCode-Nucleo-Debugger"
+  },
+  "homepage": "https://github.com/ilnerdchuck/VSCode-Nucleo-Debugger",
+  "qna": "https://github.com/ilnerdchuck/VSCode-Nucleo-Debugger/issues",
+  "keywords": [
+      "C",
+      "C++",
+      "Nucleo multiprogrammato"
+  ],
+  "activationEvents": [
+    "onDebugResolve:cppdbg"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "nucleo-debugger.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.91.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
+}
