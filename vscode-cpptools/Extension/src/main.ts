@@ -26,11 +26,7 @@ import { logMachineIdMappings } from './id';
 import { disposeOutputChannels, log } from './logger';
 import { PlatformInformation } from './platform';
 // load the custom webview
-import { getWebviewContent } from './nucleoweb';
-
-//webview variables
-let panel: vscode.WebviewPanel; 
-
+import { NucleoInfo } from './nucleoweb';
 
 nls.config({ messageFormat: nls.MessageFormat.bundle, bundleFormat: nls.BundleFormat.standalone })();
 const localize: nls.LocalizeFunc = nls.loadMessageBundle();
@@ -149,84 +145,32 @@ export async function activate(context: vscode.ExtensionContext): Promise<CppToo
         }
     });
     
-    vscode.debug.onDidChangeActiveDebugSession((event) =>{
-        console.log("----------------CHANGE----------------");
-        console.log(event);
-        console.log("--------------END CHANGE--------------");
-    });
+    // vscode.debug.onDidChangeActiveDebugSession((event) =>{
+    //     console.log("----------------CHANGE----------------");
+    //     console.log(event);
+    //     console.log("--------------END CHANGE--------------");
+    // });
 
-    vscode.debug.onDidReceiveDebugSessionCustomEvent((event) =>{
-        console.log("----------------EVENT----------------");
-        console.log(event);
-        console.log("--------------END EVENT--------------");
-    });
+    // vscode.debug.onDidReceiveDebugSessionCustomEvent((event) =>{
+    //     console.log("----------------EVENT----------------");
+    //     console.log(event);
+    //     console.log("--------------END EVENT--------------");
+    // });
 
     
     vscode.debug.onDidStartDebugSession( async ()=>{
-            panel = vscode.window.createWebviewPanel(
-            'customCommand', // Identifies the type of the webview. Used internally
-            'Nucleo Infos', // Title of the panel displayed to the user
-            vscode.ViewColumn.Beside, // Editor column to show the new webview panel in.
-            {
-                enableScripts: true 
-            } // Webview options. More on these later.
-        );
-
-        await new Promise(resolve => setImmediate(resolve));
-        const session = vscode.debug.activeDebugSession;
-
-        panel.webview.html = getWebviewContent('<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="300" />');
-        // console.log("------------------START----------------");
-        // console.log(session);
-        // console.log("----------------END START--------------");
-        const updateWebview = async () => {
-            if (session) {
-                const sTrace = await session.customRequest('stackTrace', { threadId: 1 });
-                if(sTrace.stackFrames[0].id === undefined){
-                    return;
-                }
-                const frameId = sTrace.stackFrames[0].id;
-            
-                // build and exec the command, in this case info registers 
-                const text = '-exec process list';
-                console.log(sTrace);
-                // const arg : DebugProtocol.EvaluateArguments = {expression: text, frameId: frameId, context:'hover'};
-                session.customRequest('evaluate', {expression: text, frameId: frameId, context:'hover'}).then((response) => {
-                    // console.log("------------------EVAL----------------");
-                    // console.log(response.result);
-                    // console.log("----------------END EVAL--------------");
-                    // panel.webview.html = getWebviewContent(response.result);
-                    panel.webview.postMessage({ command: response.result });  
-                });
-            }     
-          };
-    
-        // Set initial content
-        updateWebview();
-    
-        // And schedule updates to the content every second
-        const interval = setInterval(updateWebview, 500);
-
-        panel.onDidDispose(
-            () => {
-              // When the panel is closed, cancel any future updates to the webview content
-              clearInterval(interval);
-            },
-            null,
-            context.subscriptions
-          );
-
+        NucleoInfo.createInfoPanel(context.extensionUri);
     }); 
 
-    vscode.debug.onDidTerminateDebugSession(() => {
-        panel.dispose();
-    })
-    
-    //A custom VSCode command to retrieve information on nucleo 
-    const disposable = vscode.commands.registerCommand("C_Cpp.nucleoInfo", async ()=>{
+    vscode.debug.onDidTerminateDebugSession(() =>{
+        NucleoInfo.currentPanel?.dispose();
     });
+    
+    // Register a custom VSCode command to retrieve information on nucleo 
+    // const disposable = vscode.commands.registerCommand("C_Cpp.nucleoInfo", async ()=>{
+    // });
+    // context.subscriptions.push(disposable);
 
-    context.subscriptions.push(disposable);
 
     if (shouldActivateLanguageServer) {
         await LanguageServer.activate();
