@@ -26,4 +26,4 @@ set wait_for_gdb=0
 break sistema.s:start
 continue
 delete 1
-source debug/nuculeo.py
+source debug/vscode_nucleo.py

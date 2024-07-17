@@ -16,6 +16,7 @@ start:
 	// moduli io e utente copiati in memoria dal bootloader stesso.
 	// Salviamo temporaeamente l'indirizzo in un registro non-scratch per
 	// poi passarlo a main.
+	
 	mov %rdi, %rbx
 	// inizializziamo la IDT (funzione definita in questo file)
 	call init_idt

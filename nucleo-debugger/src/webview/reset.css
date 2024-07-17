@@ -1,0 +1,80 @@
+html {
+	box-sizing: border-box;
+	font-size: 13px;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	color: var(--vscode-foreground);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+li{
+	list-style-type: none;
+}
+
+.togarrow {
+	color: var(--vscode-icon-foreground);
+}
+.info{
+	color: var(--vscode-debugView-stateLabelForeground);
+	border-radius: 0.3rem;
+	background-color: var(--vscode-debugView-stateLabelBackground);
+	padding: 0.1rem;
+	margin-left: 0.3rem;
+	font-size: 0.8rem;
+}
+
+.key{
+	color: var(--vscode-debugTokenExpression-name);
+}
+
+
+.toggle > .key:hover{
+	color: aqua;
+}
+
+.value{
+	color: var(--vscode-debugTokenExpression-number);
+}
+
+.toggable {
+	margin-left: 0.5rem;
+}
+
+*:not(.toggled) > .toggable {
+	display: none;
+}
+.toggled .icon .codicon{
+	color: blue;
+}
+
+.toggle:hover {
+	color: aqua;
+	cursor: pointer; 
+}
+
+.rotate {
+	rotate: -90deg;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}

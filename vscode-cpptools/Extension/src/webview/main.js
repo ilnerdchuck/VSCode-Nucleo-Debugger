@@ -5,12 +5,13 @@
 (function () {
     document.addEventListener('DOMContentLoaded', (event) => {
         // Toggle Campi Aggiuntivi
-        const pCaDumpLists = document.querySelectorAll('.toggle');
-        pCaDumpLists.forEach((pCaDumpList) => {
-            pCaDumpList.addEventListener('click', (event) => {
-                event.target.classList.toggle('toggled');
+        const toggles = document.querySelectorAll('.toggle');
+        toggles.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                button.parentNode.classList.toggle('toggled');
             });
         });
     });
+    
     
 }());

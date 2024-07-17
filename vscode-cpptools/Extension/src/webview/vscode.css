@@ -10,7 +10,7 @@ body {
 	padding: 0 var(--container-padding);
 	color: var(--vscode-foreground);
 	font-size: var(--vscode-font-size);
-	font-weight: 200;
+	font-weight: 300;
 	font-family: "monospace";
 	background-color: var(--vscode-editor-background);
 }
