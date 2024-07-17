@@ -12,7 +12,7 @@ body {
 	font-size: var(--vscode-font-size);
 	font-weight: 300;
 	font-family: "monospace";
-	background-color: var(--vscode-editor-background);
+	background-color: var(--vscode-diffEditor-unchangedRegionBackground);
 }
 
 ol,

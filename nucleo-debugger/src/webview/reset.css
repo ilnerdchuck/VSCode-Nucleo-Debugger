@@ -29,12 +29,29 @@ li{
 	list-style-type: none;
 }
 
+.togarrow {
+	color: var(--vscode-icon-foreground);
+}
+.info{
+	color: var(--vscode-debugView-stateLabelForeground);
+	border-radius: 0.3rem;
+	background-color: var(--vscode-debugView-stateLabelBackground);
+	padding: 0.1rem;
+	margin-left: 0.3rem;
+	font-size: 0.8rem;
+}
+
 .key{
-	color: #c586c0;
+	color: var(--vscode-debugTokenExpression-name);
+}
+
+
+.toggle > .key:hover{
+	color: aqua;
 }
 
 .value{
-	color: #b5cea8;
+	color: var(--vscode-debugTokenExpression-number);
 }
 
 .toggable {
@@ -44,14 +61,17 @@ li{
 *:not(.toggled) > .toggable {
 	display: none;
 }
+.toggled .icon .codicon{
+	color: blue;
+}
 
 .toggle:hover {
-    color: aqua;
+	color: aqua;
 	cursor: pointer; 
 }
 
-.toggle * {
-    color: var(--vscode-foreground);
+.rotate {
+	rotate: -90deg;
 }
 
 img {

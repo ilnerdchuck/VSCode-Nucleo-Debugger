@@ -14,18 +14,14 @@
 
 ### Strutturra della tesi
 
-- Introduzione: Cosa vogliamo fare
-    - Introduzione a vscode
-    - obbiettivo? realizzazione di un estensione per debug del nucleo multiprogrammato
-
-- Approccio:
-    - VsCode debug interface
-    - DAP e DP: spiegazione di cosa  sono e come funzionano
-- Configurazione DAP:
-    - launch.json e task.json
-- Conclusione
+Aggiungere istruzioni:
+- uso
+- come aggiungere funzionalitá 
+- come installare l'ambiente di sviluppo
+- come debuggare l'estensione
+- come pubblicarla?
+- come fare il pacchetto vsix
 ################################################################################
 
 
 
-sdasdsa

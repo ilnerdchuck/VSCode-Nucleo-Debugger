@@ -8,8 +8,9 @@ export class NucleoInfo {
 
 	public static readonly viewType = 'nucleoInfo';
 
-	public process_list: any | undefined;
 	private readonly _extensionUri: vscode.Uri;
+	
+	public process_list: any | undefined;
 	// delare you new variable
 	// public VAR: any | undefined;
 
@@ -54,7 +55,8 @@ export class NucleoInfo {
         const session = vscode.debug.activeDebugSession;
 		const updateInfo = async () => {
 			this.process_list = await this.customCommand(session, "process list");
-			// Insert you command
+			
+			// Insert your command
 			// this.VAR = this.customCommand(session, "COMMAND");
 
 			const infoPanel = this._panel.webview;
@@ -109,54 +111,112 @@ export class NucleoInfo {
 		}     
     }
 
+	// Handles the HTML formatting for the process_list command
 	private formatProcessList(){
 		let processListJson = JSON.parse(this.process_list);
-		console.log(processListJson);
+		let proc_count = processListJson.process.length;
+		let proc_sys: any = [];
+		let proc_utn: any = [];
+		processListJson.process.forEach(element => {
+			if(element.livello == "sistema"){
+				proc_sys.push(element);
+			}else{
+				proc_utn.push(element);
+			}
+		});
+		if(proc_count ==0){
+			return `<h3>PROCESSI IN ESECUZIONE<span class="info">: ${proc_count}</span></h3>`
+		}
 		let source = `
 		<div class="">
-			<h3 class="toggle">PROCESSI IN ESECUZIONE</h3>
+			<h3 class="toggle">PROCESSI IN ESECUZIONE<span class="info">: ${proc_count}</span></h3>
 			<div class="toggable">
-				{{#each process}}
-					<div class="">
-						<h3 class="p-title toggle">[{{@key}}]</h3>
-						<ul class="p-dump toggable">
-							<li class="p-item"><span class="key"> pid = </span> <span class="value">{{pid}}</span></li>			
-							<li class="p-item"><span class="key"> livello = </span> <span class="value">{{livello}}</span></li>			
-							<li class="p-item"><span class="key"> corpo = </span> <span class="value">{{corpo}}</span></li>			
-							<li class="p-item"><span class="key"> rip = </span> <span class="value">{{rip}}</span></li>
-							<li class="p-ca-dump-list" >
-								<div class="toggle">Campi Aggiuntivi</div> 
-								<ul class="toggable">
-									{{#each campi_aggiuntivi}}
-										<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
-									{{/each}}
+				<div class="">
+					<h3 class="p-title toggle">sistema<span class="info">: ${proc_sys.length}</span></h3>
+					<div class="toggable">
+						{{#each proc_sys}}
+							<div class="">
+								<h3 class="p-title toggle"><span class="key">[{{pid}}]</span><span class="info">: object</span></h3>
+								<ul class="p-dump toggable">
+									<li class="p-item"><span class="key"> pid = </span> <span class="value">{{pid}}</span></li>			
+									<li class="p-item"><span class="key"> livello = </span> <span class="value">{{livello}}</span></li>			
+									<li class="p-item"><span class="key"> corpo = </span> <span class="value">{{corpo}}</span></li>			
+									<li class="p-item"><span class="key"> rip = </span> <span class="value">{{rip}}</span></li>
+									<li class="p-ca-dump-list" >
+										<div class="toggle"><span class="key">campi aggiuntivi</span><span class="info">: object</span></div> 
+										<ul class="toggable">
+											{{#each campi_aggiuntivi}}
+												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+											{{/each}}
+										</ul>
+									</li>
+									<li class="p-dump-list "> 
+										<div class="toggle"><span class="key">dump Pila</span><span class="info">: object</span></div> 
+										<ul class="toggable">
+											{{#each pila_dmp}}
+												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+											{{/each}}
+										</ul>
+									</li>
+									<li class="p-dump-list"> 
+										<div class="toggle"><span class="key">dump registri</span><span class="info">: object</span></div> 
+										<ul class="toggable">
+											{{#each reg_dmp}}
+												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+											{{/each}}
+										</ul>
+									</li>
 								</ul>
-							</li>
-							<li class="p-dump-list "> 
-								<div class="toggle">Pila Dump</div> 
-								<ul class="toggable">
-									{{#each pila_dmp}}
-										<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
-									{{/each}}
-								</ul>
-							</li>
-							<li class="p-dump-list"> 
-								<div class="toggle">Registers Dump</div> 
-								<ul class="toggable">
-									{{#each reg_dmp}}
-										<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
-									{{/each}}
-								</ul>
-							</li>
-						</ul>
+							</div>
+						{{/each}}
 					</div>
-				{{/each}}
+				</div>
+				<div class="">
+					<h3 class="p-title toggle">utente<span class="info">: ${proc_utn.length}</span></h3>
+					<div class="toggable">
+						{{#each proc_utn}}
+							<div class="">
+								<h3 class="p-title toggle"><span class="key">[{{pid}}]</span><span class="info">: object</span></h3>
+								<ul class="p-dump toggable">
+									<li class="p-item"><span class="key"> pid = </span> <span class="value">{{pid}}</span></li>			
+									<li class="p-item"><span class="key"> livello = </span> <span class="value">{{livello}}</span></li>			
+									<li class="p-item"><span class="key"> corpo = </span> <span class="value">{{corpo}}</span></li>			
+									<li class="p-item"><span class="key"> rip = </span> <span class="value">{{rip}}</span></li>
+									<li class="p-ca-dump-list" >
+										<div class="toggle"><span class="key">campi aggiuntivi</span><span class="info">: object</span></div> 
+										<ul class="toggable">
+											{{#each campi_aggiuntivi}}
+												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+											{{/each}}
+										</ul>
+									</li>
+									<li class="p-dump-list "> 
+										<div class="toggle"><span class="key">dump pila</span><span class="info">: object</span></div> 
+										<ul class="toggable">
+											{{#each pila_dmp}}
+												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+											{{/each}}
+										</ul>
+									</li>
+									<li class="p-dump-list"> 
+										<div class="toggle"><span class="key">dump registri</span><span class="info">: object</span></div> 
+										<ul class="toggable">
+											{{#each reg_dmp}}
+												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
+											{{/each}}
+										</ul>
+									</li>
+								</ul>
+							</div>
+						{{/each}}
+					</div>
+				</div>
 			</div>
 		</div>
 		`;
 
 		let template = Handlebars.compile(source);
-		return template(processListJson);
+		return template({proc_sys: proc_sys, proc_utn: proc_utn,});
 	}
 
     private _getHtmlForWebview() {
@@ -173,7 +233,7 @@ export class NucleoInfo {
 		// Uri to load styles into webview
 		const stylesResetUri = this._panel.webview.asWebviewUri(styleResetPath);
 		const stylesMainUri = this._panel.webview.asWebviewUri(stylesPathMainPath);
-
+		const codiconsUri = this._panel.webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'node_modules', '@vscode/codicons', 'dist', 'codicon.css'));
 		let sourceDocument = `
 		<!DOCTYPE html>
 			<html lang="en">
@@ -182,6 +242,7 @@ export class NucleoInfo {
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 						<link href="${stylesResetUri}" rel="stylesheet">
 						<link href="${stylesMainUri}" rel="stylesheet">
+						<link href="${codiconsUri}" rel="stylesheet" />
 					<title>Info Nucleo</title>
 				</head>
 				<body>
