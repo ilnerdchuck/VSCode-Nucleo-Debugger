@@ -1,0 +1,27 @@
+private _getHtmlForWebview() {
+    const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, 'src/webview', 'main.js');
+...
+
+...
+    let sourceDocument = `
+    <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link href="${stylesResetUri}" rel="stylesheet">
+                    <link href="${stylesMainUri}" rel="stylesheet">
+                    <link href="${codiconsUri}" rel="stylesheet" />
+                <title>Info Nucleo</title>
+            </head>
+            <body>
+                {{{processList}}}
+
+            <script src="${scriptUri}"></script>
+            </body>
+        </html>
+    `;
+
+    let template = Handlebars.compile(sourceDocument);
+    return template({ processList: this.formatProcessList() });
+}

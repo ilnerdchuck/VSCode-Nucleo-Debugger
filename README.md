@@ -1,27 +1,26 @@
-# Nuculeo-VSExtension
+# VSCode nucleo debugger
 
-### Cose interessanti
+### Risorse
+https://en.wikipedia.org/wiki/GNU_Debugger      
+https://sourceware.org/gdb/current/onlinedocs/gdb.html/Python-API.html
+https://en.wikipedia.org/wiki/QEMU      
 
-- referencesViews.ts: `void vscode.commands.executeCommand('setContext', 'cpptools.hasReferencesResults', hasResults);`
--
+https://microsoft.github.io/debug-adapter-protocol/specification#Requests_Evaluate      
+https://microsoft.github.io/debug-adapter-protocol/overview      
+https://github.com/microsoft/VSDebugAdapterHost/tree/main      
 
-
-### Importante
-
-- gli eseguibili in bin/ e le cartelle LLVM/ e debugAdapters/ non vengono fornite dalla microsoft e ogni cambio di release andranno copiate e incollate a mano nella cartella Extensions/ prima di lanciare il comando di build `vsce package`
-
-
-
-### Strutturra della tesi
-
-Aggiungere istruzioni:
-- uso
-- come aggiungere funzionalitá 
-- come installare l'ambiente di sviluppo
-- come debuggare l'estensione
-- come pubblicarla?
-- come fare il pacchetto vsix
-################################################################################
-
-
-
+https://code.visualstudio.com/api/get-started/your-first-extension      
+https://github.com/microsoft/vscode-extension-samples?tab=readme-ov-file      
+https://vscode-api.js.org      
+https://code.visualstudio.com/api/      
+https://code.visualstudio.com/Docs/editor/tasks
+https://code.visualstudio.com/api/extension-guides/webview
+https://code.visualstudio.com/Docs/editor/debugging      
+https://code.visualstudio.com/api/extension-guides/debugger-extension      
+https://github.com/SolarTheory/Microsoft-VSCode-Codicons      
+https://code.visualstudio.com/api/working-with-extensions/publishing-extension      
+https://code.visualstudio.com/api/extension-guides/command      
+https://stackoverflow.com/questions/61705879/code-inside-activate-function-of-vs-code-extension-is-not-run   
+https://code.visualstudio.com/api/references/activation-events#onDebug      
+https://www.typescriptlang.org/docs/      
+https://handlebarsjs.com/      

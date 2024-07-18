@@ -1,0 +1,11 @@
+const updateInfo = async () => {
+    this.process_list = await this.customCommand(session, "process list");
+    
+    // Insert your command
+    // this.VAR = this.customCommand(session, "COMMAND");
+
+    const infoPanel = this._panel.webview;
+    
+
+    infoPanel.html = this._getHtmlForWebview();
+};

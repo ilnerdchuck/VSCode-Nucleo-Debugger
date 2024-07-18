@@ -16,9 +16,68 @@
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{listings}
+\usepackage{listings}
+\usepackage{xparse}
 \usepackage{hyperref}
 \usepackage[normalem]{ulem}
-\bibliography{chapters/bibliografia.bib}
+\usepackage{float}
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+
 % -----------------------------------------------------------------
 
 \pagestyle{fancy}
@@ -69,16 +128,16 @@
 \include{chapters/chapter_04}
 \include{chapters/chapter_05}
 \include{chapters/chapter_06}
-\include{chapters/chapter_07}
-\include{chapters/chapter_08}
 
 
 % Rimuovere se non si vuole la tabella delle figure
 % \listoffigures
 
-\appendix
-
-\bibliographystyle{plainnat}
 \include{chapters/ringrazia}
+
+\appendix
+\bibliography{chapters/bibliografia.bib}
+\bibliographystyle{plainnat}
+
 \end{document}
 % -----------------------------------------------------------------

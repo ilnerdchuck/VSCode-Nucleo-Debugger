@@ -1,0 +1,25 @@
+private _getHtmlForWebview() {
+...
+
+...
+    let sourceDocument = `
+    <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link href="${stylesResetUri}" rel="stylesheet">
+                    <link href="${stylesMainUri}" rel="stylesheet">
+                    <link href="${codiconsUri}" rel="stylesheet" />
+                <title>Info Nucleo</title>
+            </head>
+            <body>
+                {{{processList}}}
+                
+                //{{varNAME}}
+...
+
+...
+    let template = Handlebars.compile(sourceDocument);    
+    return template({ processList: this.formatProcessList(), varNAME: this.YOUR_FORMATTER() });
+}

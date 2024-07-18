@@ -32,7 +32,7 @@
             }
         },
         {
-            "label": "run",
+            "label": "Avvia debug",
             "type": "shell",
             "isBackground": true,
             "command": "boot -g",

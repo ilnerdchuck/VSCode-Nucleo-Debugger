@@ -9,7 +9,7 @@
             "cwd": "${workspaceFolder}",
             "miDebuggerPath": "gdb",
             "stopAtEntry": true,
-            "preLaunchTask": "run",
+            "preLaunchTask": "Avvia debug",
             "stopAtConnect": true,
             "setupCommands": [
                 {"text": "cd ${workspaceFolder}"},

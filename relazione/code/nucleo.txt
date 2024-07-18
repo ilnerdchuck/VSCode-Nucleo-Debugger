@@ -1,0 +1,34 @@
+def process_dump(proc, indent=0, verbosity=3):
+    write_key("livello", colorize('col_usermode', "utente") if proc['livello'] == gdb.Value(3) else colorize('col_sysmode', "sistema"), indent)
+    write_key("corpo", dump_corpo(proc), indent)
+...
+
+...
+    write_key("rip", "{:>18s} {}".format(rip_s[0], " ".join(rip_s[1:])), indent)
+    if (verbosity > 2):
+        write_key("cs",  dump_selector(readfis(stack + 8)), indent)
+        write_key("rflags", dump_flags(readfis(stack + 16)), indent)
+        write_key("rsp", "{:#18x}".format(readfis(stack + 24)), indent)
+        write_key("ss",  dump_selector(readfis(stack + 32)), indent)
+...
+...
+        gdb.write(colorize('col_proc_hdr', "-- prossima istruzione:\n"), indent)
+        show_lines(gdb.find_pc_line(rip), indent)
+    if len(toshow) > 0:
+        if verbosity > 2:
+            gdb.write("\x1b[33m-- campi aggiuntivi:\x1b[m\n", indent)
+        for f in toshow:
+            write_key(f.name, proc[f], indent)
+...
+
+...
+class ProcessList(gdb.Command):
+...
+    def __init__(self):
+        super(ProcessList, self).__init__("process list", gdb.COMMAND_DATA)
+
+    def invoke(self, arg, from_tty):
+        for pid, proc in process_list(arg):
+            gdb.write("==> Processo {}\n".format(pid))
+            process_dump(proc, indent=4, verbosity=0)
+...

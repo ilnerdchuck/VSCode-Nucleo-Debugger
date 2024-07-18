@@ -11,7 +11,7 @@ export class NucleoInfo {
 	private readonly _extensionUri: vscode.Uri;
 	
 	public process_list: any | undefined;
-	// delare you new variable
+	// delare your new GDB response variable
 	// public VAR: any | undefined;
 
     private readonly _panel: vscode.WebviewPanel;
@@ -97,7 +97,7 @@ export class NucleoInfo {
     private async customCommand(session: typeof vscode.debug.activeDebugSession, command: string, arg?: any){
 		if(session) {
 			const sTrace = await session.customRequest('stackTrace', { threadId: 1 });
-			if(sTrace.stackFrames[0] === undefined){
+			if(sTrace === undefined){
 				return;
 			}
 			const frameId = sTrace.stackFrames[0].id;
@@ -132,7 +132,7 @@ export class NucleoInfo {
 			<h3 class="toggle">PROCESSI IN ESECUZIONE<span class="info">: ${proc_count}</span></h3>
 			<div class="toggable">
 				<div class="">
-					<h3 class="p-title toggle">sistema<span class="info">: ${proc_sys.length}</span></h3>
+					<h3 class="p-title toggle"><span class="key">sistema</span><span class="info">: ${proc_sys.length}</span></h3>
 					<div class="toggable">
 						{{#each proc_sys}}
 							<div class="">
@@ -143,7 +143,7 @@ export class NucleoInfo {
 									<li class="p-item"><span class="key"> corpo = </span> <span class="value">{{corpo}}</span></li>			
 									<li class="p-item"><span class="key"> rip = </span> <span class="value">{{rip}}</span></li>
 									<li class="p-ca-dump-list" >
-										<div class="toggle"><span class="key">campi aggiuntivi</span><span class="info">: object</span></div> 
+										<div class="toggle"><span class="key">campi aggiuntivi</span><span class="info">: array[]</span></div> 
 										<ul class="toggable">
 											{{#each campi_aggiuntivi}}
 												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
@@ -151,7 +151,7 @@ export class NucleoInfo {
 										</ul>
 									</li>
 									<li class="p-dump-list "> 
-										<div class="toggle"><span class="key">dump Pila</span><span class="info">: object</span></div> 
+										<div class="toggle"><span class="key">dump Pila</span><span class="info">: array[]</span></div> 
 										<ul class="toggable">
 											{{#each pila_dmp}}
 												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
@@ -159,7 +159,7 @@ export class NucleoInfo {
 										</ul>
 									</li>
 									<li class="p-dump-list"> 
-										<div class="toggle"><span class="key">dump registri</span><span class="info">: object</span></div> 
+										<div class="toggle"><span class="key">dump registri</span><span class="info">: array[]</span></div> 
 										<ul class="toggable">
 											{{#each reg_dmp}}
 												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
@@ -172,7 +172,7 @@ export class NucleoInfo {
 					</div>
 				</div>
 				<div class="">
-					<h3 class="p-title toggle">utente<span class="info">: ${proc_utn.length}</span></h3>
+					<h3 class="p-title toggle"><span class="key">utente</span><span class="info">: ${proc_utn.length}</span></h3>
 					<div class="toggable">
 						{{#each proc_utn}}
 							<div class="">
@@ -183,7 +183,7 @@ export class NucleoInfo {
 									<li class="p-item"><span class="key"> corpo = </span> <span class="value">{{corpo}}</span></li>			
 									<li class="p-item"><span class="key"> rip = </span> <span class="value">{{rip}}</span></li>
 									<li class="p-ca-dump-list" >
-										<div class="toggle"><span class="key">campi aggiuntivi</span><span class="info">: object</span></div> 
+										<div class="toggle"><span class="key">campi aggiuntivi</span><span class="info">: array[]</span></div> 
 										<ul class="toggable">
 											{{#each campi_aggiuntivi}}
 												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
@@ -191,7 +191,7 @@ export class NucleoInfo {
 										</ul>
 									</li>
 									<li class="p-dump-list "> 
-										<div class="toggle"><span class="key">dump pila</span><span class="info">: object</span></div> 
+										<div class="toggle"><span class="key">dump pila</span><span class="info">: array[]</span></div> 
 										<ul class="toggable">
 											{{#each pila_dmp}}
 												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
@@ -199,7 +199,7 @@ export class NucleoInfo {
 										</ul>
 									</li>
 									<li class="p-dump-list"> 
-										<div class="toggle"><span class="key">dump registri</span><span class="info">: object</span></div> 
+										<div class="toggle"><span class="key">dump registri</span><span class="info">: array[]</span></div> 
 										<ul class="toggable">
 											{{#each reg_dmp}}
 												<li class="p-dmp-item"> <span class="key">{{@key}} =</span> <span class="value">{{this}}</span></li>
@@ -247,6 +247,8 @@ export class NucleoInfo {
 				</head>
 				<body>
 					{{{processList}}}
+					
+					//{{varNAME}}
 
 				<script src="${scriptUri}"></script>
 				</body>
@@ -254,7 +256,8 @@ export class NucleoInfo {
 		`;
 
 		let template = Handlebars.compile(sourceDocument);
-		return template({ processList: this.formatProcessList() });
+		
+		return template({ processList: this.formatProcessList(), varNAME: this.YOUR_FORMATTER() });
 	}
 }
 
@@ -264,5 +267,6 @@ function getWebviewOptions(extensionUri: vscode.Uri): vscode.WebviewOptions {
 	return {
 		// Enable javascript in the webview
 		enableScripts: true,
+		localResourceRoots: [vscode.Uri.joinPath(extensionUri, '/')]
 	};
 }
