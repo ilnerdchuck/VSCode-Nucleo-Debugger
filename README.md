@@ -15,13 +15,11 @@
     
     ```
     # apt install node yarn
-
     ```
 
 #### clone the repo:
 ```
 # git clone https://github.com/ilnerdchuck/VSCode-Nucleo-Debugger
-
 ```
 
 #### build the extension:
@@ -29,12 +27,10 @@
 ```
 cd VSCode-nucleo-debugger/
 yarn install
-
 ```
-Opzionale: se si vuole crare il package `.vsix` si può installare il comando `vsce` globalmente
+Opzionale: se si vuole crare il package `.vsix` si può installare il comando `vsce` globalmente:
 ```
 yarn global add vsce
-
 ```
 
 #### contribute to the extension:
@@ -45,7 +41,7 @@ Fare una fork della repository e seguire le istruzioni sovrastanti. Una volta sv
 #### GDB
 - https://sourceware.org/gdb/current/onlinedocs/gdb.html/Python-API.html
 
-#### GDB
+#### DAP e DP
 
 - https://microsoft.github.io/debug-adapter-protocol/specification#Requests_Evaluate      
 - https://microsoft.github.io/debug-adapter-protocol/overview      
@@ -61,11 +57,11 @@ Fare una fork della repository e seguire le istruzioni sovrastanti. Una volta sv
 - https://code.visualstudio.com/api/extension-guides/webview
 - https://code.visualstudio.com/Docs/editor/debugging      
 - https://code.visualstudio.com/api/extension-guides/debugger-extension      
-- https://github.com/SolarTheory/Microsoft-VSCode-Codicons      
 - https://code.visualstudio.com/api/working-with-extensions/publishing-extension      
 - https://code.visualstudio.com/api/extension-guides/command      
-- https://stackoverflow.com/questions/61705879/code-inside-activate-function-of-vs-code-extension-is-not-run   
 - https://code.visualstudio.com/api/references/activation-events#onDebug      
+- https://stackoverflow.com/questions/61705879/code-inside-activate-function-of-vs-code-extension-is-not-run   
 #### Misc
+- https://github.com/SolarTheory/Microsoft-VSCode-Codicons      
 - https://www.typescriptlang.org/docs/      
 - https://handlebarsjs.com/      
