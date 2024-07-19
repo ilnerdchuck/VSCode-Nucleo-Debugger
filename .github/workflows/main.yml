@@ -21,9 +21,12 @@ jobs:
     - name: Install dependencies
       run: yarn install
       working-directory: nucleo-debugger
+    - name: Install vsce
+      run: yarn global add vsce  
+      working-directory: nucleo-debugger
 
     - name: Build VSIX package
-      run: yarn vsce package
+      run: vsce package
       working-directory: nucleo-debugger
 
     - name: Upload VSIX package
