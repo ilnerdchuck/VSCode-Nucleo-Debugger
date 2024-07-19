@@ -10,9 +10,9 @@ jobs:
           uses: nhedger/package-vscode-extension@v1
           with:
             # Path to the unbundled extension.
-            extensionPath: /nucleo-debugger
+            extensionPath: nucleo-debugger
             # Path to the generated VSIX package.
-            packagePath: /nucleo-debugger/
+            packagePath: nucleo-debugger/
             # Base URL for links detected in Markdown files.
             #baseContentUrl: # optional
             # Base URL for images detected in Markdown files.
