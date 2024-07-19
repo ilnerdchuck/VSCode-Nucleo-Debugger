@@ -49,14 +49,15 @@ In questo modo il comando che modifica PATH viene aggiunto in fondo al file .bas
 Prima di tutto si devono installare gli strumenti per la compilazione, insieme ad alcune librerie usate da QEMU. Apprire un emulatore di terminale e scrivete i seguenti comandi:
 - RPM/RHEL:
 ```
-sudo apt update
-sudo apt install build-essential python3 zlib1g-dev libsdl2-dev libpixman-1-dev libjson-xs-perl ninja-build ncurses-dev python3-pip
+# dnf update
+# dnf group install "C Development Tools and Libraries" "Development Tools"
+# dnf install python3 zlib-devel SDL2-devel pixman-devel perl-JSON-XS ninja-build ncurses-devel python3-pip
 ```
 
 - Ubuntu/Debian:
 ```
-sudo apt update
-sudo apt install build-essential python3 zlib1g-dev libsdl2-dev libpixman-1-dev libjson-xs-perl ninja-build ncurses-dev python3-pip
+# apt update
+# apt install build-essential python3 zlib1g-dev libsdl2-dev libpixman-1-dev libjson-xs-perl ninja-build ncurses-dev python3-pip
 ```
 
 (Nota: solo i comandi precedenti sono specifici di Debian, Ubuntu, etc. Chi vuole usare un'altra distribuzione deve installare le librerie zlib, SDL2, pixman e ncurses, oltre a make, gcc, python3 e tutto il necessario per compilare. Fatto questo, i comandi successivi si applicano a qualunque distribuzione).
