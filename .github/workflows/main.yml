@@ -19,15 +19,15 @@ jobs:
         node-version: '14'
 
     - name: Install dependencies
-      run: npm ci
+      run: yarn install
       working-directory: nucleo-debugger
 
     - name: Build VSIX package
-      run: npm run vsce package
+      run: yarn vsce package
       working-directory: nucleo-debugger
 
     - name: Upload VSIX package
       uses: actions/upload-artifact@v2
       with:
-        name: nucleo-debugger.vsix
+        name: my-extension.vsix
         path: nucleo-debugger/*.vsix
