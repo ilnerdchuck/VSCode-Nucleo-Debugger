@@ -1,22 +1,26 @@
 name: Extension Package
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  release:
     runs-on: ubuntu-latest
     steps:
-        - name: Package VS Code Extension
-        # You may pin to the exact commit or the version.
-        # uses: nhedger/package-vscode-extension@102a29378b80b78b38adfa820c41387f406aa4f3
-          uses: nhedger/package-vscode-extension@v1
-          with:
-            # Path to the unbundled extension.
-            extensionPath: nucleo-debugger
-            # Path to the generated VSIX package.
-            packagePath: nucleo-debugger/
-            # Base URL for links detected in Markdown files.
-            #baseContentUrl: # optional
-            # Base URL for images detected in Markdown files.
-            #baseImagetUrl: # optional
-            # GitHub branch used to publish the package. Used to automatically infer the base content and images URI.
-            useYarn: true
+      - name: Clone Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node version
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build Package
+        run: yarn build
+        env:
+          NODE_ENV: production
+          MARQUEE_INSTRUMENTATION_KEY: ${{ secrets.MARQUEE_INSTRUMENTATION_KEY }}
+        if: ${{ github.event.inputs.releaseChannel == 'stable' }}
+      - name: Package Extension (Stable)
+        run: yarn vsce package $RELEASE_VERSION --yarn --no-git-tag-version --no-update-package-json -o "./marquee-$RELEASE_VERSION.vsix" ${{ github.event.inputs.additionalFlags }}
+        if: ${{ github.event.inputs.releaseChannel == 'stable' }}
           
