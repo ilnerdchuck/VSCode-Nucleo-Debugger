@@ -34,11 +34,11 @@ make install
 
 Questo comando installa anche gli script compile, boot e debug. Per usarli comodamente, però, è necessario aggiungere la directory $HOME/CE/bin alla propria variable PATH. Per esempio, in un sistema Debian/Ubuntu con shell di default (bash), si può eseguire (una sola volta) questo comando:
 ```
-	echo 'PATH=$HOME/CE/bin:$PATH' >> ~/.bashrc
+echo 'PATH=$HOME/CE/bin:$PATH' >> ~/.bashrc
 ```
 oppure in caso si usi zsh:
 ```
-	echo 'PATH=$HOME/CE/bin:$PATH' >> ~/.zshrc
+echo 'PATH=$HOME/CE/bin:$PATH' >> ~/.zshrc
 ```
 
 In questo modo il comando che modifica PATH viene aggiunto in fondo al file .bashrc nella propria home, e verrà eseguito dalla shell ogni volta che aprite un nuovo terminale.
