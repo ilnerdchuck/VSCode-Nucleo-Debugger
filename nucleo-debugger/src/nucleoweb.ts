@@ -220,15 +220,15 @@ export class NucleoInfo {
 	}
 
     private _getHtmlForWebview() {
-		const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, 'src/webview', 'main.js');
+		const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, '/media/webview', 'main.js');
 
 		// And the uri we use to load this script in the webview
 		const scriptUri = this._panel.webview.asWebviewUri(scriptPathOnDisk);
 
 		
 		// Local path to css styles
-		const styleResetPath = vscode.Uri.joinPath(this._extensionUri, 'src/webview', 'reset.css');
-		const stylesPathMainPath = vscode.Uri.joinPath(this._extensionUri, 'src/webview', 'vscode.css');
+		const styleResetPath = vscode.Uri.joinPath(this._extensionUri, '/media/webview', 'reset.css');
+		const stylesPathMainPath = vscode.Uri.joinPath(this._extensionUri, '/media/webview', 'vscode.css');
 
 		// Uri to load styles into webview
 		const stylesResetUri = this._panel.webview.asWebviewUri(styleResetPath);
@@ -248,8 +248,6 @@ export class NucleoInfo {
 				<body>
 					{{{processList}}}
 					
-					//{{varNAME}}
-
 				<script src="${scriptUri}"></script>
 				</body>
 			</html>
@@ -257,7 +255,7 @@ export class NucleoInfo {
 
 		let template = Handlebars.compile(sourceDocument);
 		
-		return template({ processList: this.formatProcessList(), varNAME: this.YOUR_FORMATTER() });
+		return template({ processList: this.formatProcessList()});
 	}
 }
 

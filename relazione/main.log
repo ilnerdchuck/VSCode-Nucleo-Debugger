@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.7.1)  18 JUL 2024 12:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.7.1)  18 JUL 2024 18:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -453,7 +453,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 104.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 119.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./main.aux (./chapters/frontespizio.aux) (./chapters/chapter_00.aux) (./chapters/chapter_01.aux) (./chapters/chapter_02.aux) (./chapters/chapter_03.aux) (./chapters/chapter_04.aux) (./chapters/chapter_05.aux) (./chapters/chapter_06.aux) (./chapters/ringrazia.aux))
+) (./main.aux (./chapters/frontespizio.aux) (./chapters/chapter_00.aux) (./chapters/chapter_01.aux) (./chapters/chapter_02.aux) (./chapters/chapter_04.aux) (./chapters/chapter_05.aux) (./chapters/chapter_06.aux) (./chapters/ringrazia.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
@@ -563,7 +563,7 @@ Package epstopdf Info: Source file: <images/cherubino.eps>
 (epstopdf)             Command: <repstopdf --outfile=images/cherubino-eps-converted-to.pdf images/cherubino.eps>
 (epstopdf)             \includegraphics on input line 4.
 Package epstopdf Info: Output file is already uptodate.
-<images/cherubino-eps-converted-to.pdf, id=120, 288.07625pt x 294.09875pt>
+<images/cherubino-eps-converted-to.pdf, id=116, 288.07625pt x 294.09875pt>
 File: images/cherubino-eps-converted-to.pdf Graphic file (type pdf)
 <use images/cherubino-eps-converted-to.pdf>
 Package pdftex.def Info: images/cherubino-eps-converted-to.pdf  used on input line 4.
@@ -587,59 +587,51 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 
 
 ] (./main.toc
-LaTeX Font Info:    Calculating math sizes for size <13> on input line 4.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4.
+LaTeX Font Info:    Calculating math sizes for size <13> on input line 5.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 4.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 4.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <13> on input line 4.
+(Font)              <13> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9.09996> on input line 4.
+(Font)              <9.09996> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6.5> on input line 4.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+(Font)              <6.5> on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [3
-
-
-
-
-])
+))
 \tf@toc=\write4
 \openout4 = `main.toc'.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.5pt): 
-(fancyhdr)                Make it at least 15.59995pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.59995pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.125 \include{chapters/chapter_01}
-                                    [1]
+                                    [1
+
+
+
+
+]
 \openout2 = `chapters/chapter_01.aux'.
 
  (./chapters/chapter_01.tex
@@ -653,12 +645,7 @@ l.1 \chapter
 
 ]
 Capitolo 1.
-)
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.125 \include{chapters/chapter_01}
-                                    [3]
+) [3]
 \openout2 = `chapters/chapter_02.aux'.
 
  (./chapters/chapter_02.tex [4
@@ -669,7 +656,7 @@ l.125 \include{chapters/chapter_01}
 
 ]
 Capitolo 2.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7.
 (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [5]
@@ -681,15 +668,15 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
 [6]
-<images/debug-arch1.png, id=202, 349.305pt x 121.95563pt>
+<images/debug-arch1.png, id=194, 349.305pt x 121.95563pt>
 File: images/debug-arch1.png Graphic file (type png)
 <use images/debug-arch1.png>
-Package pdftex.def Info: images/debug-arch1.png  used on input line 37.
+Package pdftex.def Info: images/debug-arch1.png  used on input line 40.
 (pdftex.def)             Requested size: 298.75264pt x 104.3122pt.
-<images/with-DAP.png, id=204, 944.52875pt x 776.9025pt>
+<images/with-DAP.png, id=196, 944.52875pt x 776.9025pt>
 File: images/with-DAP.png Graphic file (type png)
 <use images/with-DAP.png>
-Package pdftex.def Info: images/with-DAP.png  used on input line 46.
+Package pdftex.def Info: images/with-DAP.png  used on input line 49.
 (pdftex.def)             Requested size: 298.75264pt x 245.73322pt.
 
 
@@ -703,21 +690,21 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.55     \item {
-                
+l.57 \begin{itemize}
+                    
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.55     \item {
-                 <./images/debug-arch1.png> <./images/with-DAP.png>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 55.
+l.57 \begin{itemize}
+                     <./images/debug-arch1.png> <./images/with-DAP.png>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 58.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<images/init-launch.png, id=213, 834.11626pt x 838.13126pt>
+<images/init-launch.png, id=205, 834.11626pt x 838.13126pt>
 File: images/init-launch.png Graphic file (type png)
 <use images/init-launch.png>
-Package pdftex.def Info: images/init-launch.png  used on input line 73.
+Package pdftex.def Info: images/init-launch.png  used on input line 76.
 (pdftex.def)             Requested size: 298.75264pt x 300.19235pt.
 
 
@@ -728,7 +715,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
 [8{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 79.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 82.
  (./code/protocolMessage.txt)
 
 Package fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -741,12 +728,12 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.82 
+l.85 
       <./images/init-launch.png>]
-<images/stop-continue-terminate.png, id=230, 700.6175pt x 900.36375pt>
+<images/stop-continue-terminate.png, id=222, 700.6175pt x 900.36375pt>
 File: images/stop-continue-terminate.png Graphic file (type png)
 <use images/stop-continue-terminate.png>
-Package pdftex.def Info: images/stop-continue-terminate.png  used on input line 100.
+Package pdftex.def Info: images/stop-continue-terminate.png  used on input line 103.
 (pdftex.def)             Requested size: 298.75264pt x 383.93408pt.
 
 
@@ -760,14 +747,14 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.103 
+l.106 
       ]
-<images/cat_coding.png, id=262, 835.12pt x 541.02126pt>
+<images/cat_coding.png, id=253, 835.12pt x 541.02126pt>
 File: images/cat_coding.png Graphic file (type png)
 <use images/cat_coding.png>
-Package pdftex.def Info: images/cat_coding.png  used on input line 113.
+Package pdftex.def Info: images/cat_coding.png  used on input line 116.
 (pdftex.def)             Requested size: 298.75264pt x 193.54572pt.
-)
+
 
 Package fancyhdr Warning: \headheight is too small (12.5pt): 
 (fancyhdr)                Make it at least 15.59995pt, for example:
@@ -779,8 +766,8 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.126 \include{chapters/chapter_02}
-                                    <./images/stop-continue-terminate.png>]
+l.120 
+       <./images/stop-continue-terminate.png>])
 
 Package fancyhdr Warning: \headheight is too small (12.5pt): 
 (fancyhdr)                Make it at least 15.59995pt, for example:
@@ -794,32 +781,11 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.6}) h
                                                   \__shipout_drop_firstpage_...
 l.126 \include{chapters/chapter_02}
                                     <./images/cat_coding.png (PNG copy)>]
-\openout2 = `chapters/chapter_03.aux'.
-
- (./chapters/chapter_03.tex)
-
-Package fancyhdr Warning: \headheight is too small (12.5pt): 
-(fancyhdr)                Make it at least 15.59995pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.59995pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
-
-[13
-
-
-
-]
 \openout2 = `chapters/chapter_04.aux'.
 
- (./chapters/chapter_04.tex [14
-
-
-
-
-
-]
+ (./chapters/chapter_04.tex
 Capitolo 3.
-<images/debug-arch2.png, id=282, 348.80313pt x 122.95938pt>
+<images/debug-arch2.png, id=266, 348.80313pt x 122.95938pt>
 File: images/debug-arch2.png Graphic file (type png)
 <use images/debug-arch2.png>
 Package pdftex.def Info: images/debug-arch2.png  used on input line 7.
@@ -829,7 +795,13 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (./code/task_compile.txt
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.83347> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 11.
-) [15
+) [13
+
+
+
+
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -842,7 +814,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[16
+[14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -855,7 +827,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[17
+[15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -868,7 +840,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[18
+[16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -883,7 +855,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[19
+[17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -896,7 +868,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[20
+[18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -912,7 +884,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[21
+[19
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -920,6 +892,11 @@ l.84
      ]
 Underfull \hbox (badness 6944) in paragraph at lines 99--100
 []\T1/lmr/m/n/13 in par-ti-co-la-re []\T1/lmtt/m/n/13 activationEvents[] \T1/lmr/m/n/13 è sta-to po-po-la-to con l'e-ven-to
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 102--103
+\T1/lmr/m/n/13 VSCode, du-ran-te ca-ri-ca-men-to del-l'e-sten-sio-ne cer-ca nel fi-le prin-ci-pa-le,
  []
 
 (./code/activation.txt)
@@ -930,7 +907,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[22]
+[20]
 Overfull \hbox (2.06638pt too wide) in paragraph at lines 111--112
 [][]\T1/lmtt/m/n/13 vscode.debug.onDidStartDebugSession[]\T1/lmr/m/n/13 : per-met-te di mo-ni-to-ra-re quan-
  []
@@ -943,7 +920,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[23
+[21
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -956,7 +933,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[24
+[22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -969,13 +946,13 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[25
+[23
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.138 
       ]
-<images/processes.png, id=574, 980.66376pt x 884.30376pt>
+<images/processes.png, id=557, 980.66376pt x 884.30376pt>
 File: images/processes.png Graphic file (type png)
 <use images/processes.png>
 Package pdftex.def Info: images/processes.png  used on input line 145.
@@ -988,11 +965,11 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[26
+[24
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.128 \include{chapters/chapter_04}
+l.127 \include{chapters/chapter_04}
                                    ]
 
 Package fancyhdr Warning: \headheight is too small (12.5pt): 
@@ -1001,15 +978,15 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[27
+[25
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.128 \include{chapters/chapter_04}
+l.127 \include{chapters/chapter_04}
                                     <./images/processes.png>]
 \openout2 = `chapters/chapter_05.aux'.
 
- (./chapters/chapter_05.tex [28
+ (./chapters/chapter_05.tex [26
 
 
 
@@ -1017,28 +994,28 @@ l.128 \include{chapters/chapter_04}
 
 ]
 Capitolo 4.
-<images/startDebug.png, id=622, 398.48875pt x 1509.64pt>
+<images/startDebug.png, id=602, 398.48875pt x 1509.64pt>
 File: images/startDebug.png Graphic file (type png)
 <use images/startDebug.png>
 Package pdftex.def Info: images/startDebug.png  used on input line 6.
 (pdftex.def)             Requested size: 66.91524pt x 253.51663pt.
-<images/fullDebug.png, id=623, 2264.46pt x 1509.64pt>
+<images/fullDebug.png, id=603, 2264.46pt x 1509.64pt>
 File: images/fullDebug.png Graphic file (type png)
 <use images/fullDebug.png>
 Package pdftex.def Info: images/fullDebug.png  used on input line 17.
 (pdftex.def)             Requested size: 426.79135pt x 284.50803pt.
-[29
+[27
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.21 
       <./images/startDebug.png>]
-<images/breakpoint_vscode.png, id=629, 792.9625pt x 178.6675pt>
+<images/breakpoint_vscode.png, id=610, 792.9625pt x 178.6675pt>
 File: images/breakpoint_vscode.png Graphic file (type png)
 <use images/breakpoint_vscode.png>
 Package pdftex.def Info: images/breakpoint_vscode.png  used on input line 29.
 (pdftex.def)             Requested size: 298.75264pt x 67.31366pt.
-<images/logpoint.png, id=630, 977.6525pt x 102.3825pt>
+<images/logpoint.png, id=611, 977.6525pt x 102.3825pt>
 File: images/logpoint.png Graphic file (type png)
 <use images/logpoint.png>
 Package pdftex.def Info: images/logpoint.png  used on input line 38.
@@ -1051,7 +1028,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[30
+[28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1062,7 +1039,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) h
                                                   \__shipout_drop_firstpage_...
 l.42 
       <./images/fullDebug.png (PNG copy)> <./images/breakpoint_vscode.png>]
-<images/middle_debug.png, id=637, 1313.90875pt x 1509.64pt>
+<images/middle_debug.png, id=618, 1313.90875pt x 1509.64pt>
 File: images/middle_debug.png Graphic file (type png)
 <use images/middle_debug.png>
 Package pdftex.def Info: images/middle_debug.png  used on input line 51.
@@ -1075,7 +1052,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[31
+[29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1086,12 +1063,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) h
                                                   \__shipout_drop_firstpage_...
 l.57 
       <./images/logpoint.png> <./images/middle_debug.png>]
-<images/leftDebug.png, id=644, 398.48875pt x 1509.64pt>
+<images/leftDebug.png, id=626, 398.48875pt x 1509.64pt>
 File: images/leftDebug.png Graphic file (type png)
 <use images/leftDebug.png>
 Package pdftex.def Info: images/leftDebug.png  used on input line 64.
 (pdftex.def)             Requested size: 89.2183pt x 338.01357pt.
-<images/addWatch.png, id=645, 942.52126pt x 874.26625pt>
+<images/addWatch.png, id=627, 942.52126pt x 874.26625pt>
 File: images/addWatch.png Graphic file (type png)
 <use images/addWatch.png>
 Package pdftex.def Info: images/addWatch.png  used on input line 74.
@@ -1104,13 +1081,13 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[32
+[30
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.78 
       <./images/leftDebug.png>]
-<images/infoNucleo.png, id=652, 551.05875pt x 910.40125pt>
+<images/infoNucleo.png, id=634, 551.05875pt x 910.40125pt>
 File: images/infoNucleo.png Graphic file (type png)
 <use images/infoNucleo.png>
 Package pdftex.def Info: images/infoNucleo.png  used on input line 89.
@@ -1123,7 +1100,7 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[33
+[31
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1136,30 +1113,30 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[34
+[32
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.129 \include{chapters/chapter_05}
+l.128 \include{chapters/chapter_05}
                                     <./images/infoNucleo.png>]
 \openout2 = `chapters/chapter_06.aux'.
 
  (./chapters/chapter_06.tex
 Capitolo 5.
-[35
+[33
 
 
 
 
 
-] [36
+] [34
 
 
 ]
 Capitolo 6.
-[37] (./code/var.txt) (./code/command_exec.txt)
+[35] (./code/var.txt) (./code/command_exec.txt)
 Underfull \hbox (badness 10000) in paragraph at lines 34--38
-[]\T1/lmr/m/n/13 Per ese-gui-re un co-man-do é ne-ces-sa-rio chia-ma-re la fun-zio-ne
+[]\T1/lmr/m/n/13 Per ese-gui-re un co-man-do è ne-ces-sa-rio chia-ma-re la fun-zio-ne
  []
 
 (./code/getHTML.txt)
@@ -1170,17 +1147,17 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[38
+[36
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.47     \item {
-                
+l.45         \end{figure}
+                         
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.47     \item {
-                ] (./code/formatter.txt)
+l.45         \end{figure}
+                         ] (./code/formatter.txt)
 
 Package fancyhdr Warning: \headheight is too small (12.5pt): 
 (fancyhdr)                Make it at least 15.59995pt, for example:
@@ -1188,17 +1165,12 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[39
+[37
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.55 \end{itemize}
-                  
-pdfTeX warning (ext4): destination with the same identifier (name{figure.6.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.55 \end{itemize}
-                  ])
+l.53         L
+              e strutture per lo scambio di informazioni sono a discrezione ...])
 
 Package fancyhdr Warning: \headheight is too small (12.5pt): 
 (fancyhdr)                Make it at least 15.59995pt, for example:
@@ -1206,18 +1178,23 @@ Package fancyhdr Warning: \headheight is too small (12.5pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-3.09995pt}.
 
-[40]
+[38
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.129 \include{chapters/chapter_06}
+                                   ]
 \openout2 = `chapters/ringrazia.aux'.
 
  (./chapters/ringrazia.tex
 Capitolo 7.
-) [41
+) [39
 
 
 
 
 
-] (./main.bbl [42
+] (./main.bbl [40
 
 
 
@@ -1247,32 +1224,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--37
 \T1/lmr/m/n/13 URL [][]$\T1/lmtt/m/n/13 https : / / microsoft . github . io / debug-[]adapter-[]protocol /
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
-[][]$\T1/lmtt/m/n/13 https : / / github . com / ilnerdchuck / VSCode-[]Nucleo-[]Debugger / blob /
- []
-
-) [43] (./main.aux (./chapters/frontespizio.aux) (./chapters/chapter_00.aux) (./chapters/chapter_01.aux) (./chapters/chapter_02.aux) (./chapters/chapter_03.aux) (./chapters/chapter_04.aux) (./chapters/chapter_05.aux) (./chapters/chapter_06.aux) (./chapters/ringrazia.aux))
+) [41] (./main.aux (./chapters/frontespizio.aux) (./chapters/chapter_00.aux) (./chapters/chapter_01.aux) (./chapters/chapter_02.aux) (./chapters/chapter_04.aux) (./chapters/chapter_05.aux) (./chapters/chapter_06.aux) (./chapters/ringrazia.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: ADCC153AF849168E28757FE442062103;4801.
+(rerunfilecheck)             Checksum: 84645B123B1F287311CD6C71A66F7227;4630.
  ) 
 Here is how much of TeX's memory you used:
- 17497 strings out of 476041
- 281334 string characters out of 5793165
+ 17463 strings out of 476041
+ 280223 string characters out of 5793165
  1962388 words of memory out of 6000000
- 37070 multiletter control sequences out of 15000+600000
+ 37047 multiletter control sequences out of 15000+600000
  566111 words of font info for 68 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 108i,11n,106p,730b,1491s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,12n,106p,736b,1491s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (46 pages, 1808387 bytes).
+Output written on main.pdf (43 pages, 1806748 bytes).
 PDF statistics:
- 923 PDF objects out of 1000 (max. 8388607)
- 828 compressed objects within 9 object streams
- 459 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 902 PDF objects out of 1000 (max. 8388607)
+ 810 compressed objects within 9 object streams
+ 455 named destinations out of 1000 (max. 500000)
+ 305 words of extra memory for PDF output out of 10000 (max. 10000000)
 

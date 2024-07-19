@@ -1,6 +1,6 @@
 \chapter{Implementazione}
-Per realizzare la nostra estensione andremo a estendere le funzionalità di base del debugger di VSCode. I comandi di base verranno gestiti dal debugger di VSCode dopo aver configurato opportunemante il collegamento con il GDB. La nostra estensione 
-si occuperà di inviare comandi per la visualizzazione dei processi attualemnte in esecuzione e mostrare i dati in una webview di VSCode.
+Per realizzare la nostra estensione andremo a estendere le funzionalità di base del debugger di VSCode. I comandi di base verranno gestiti dal debugger di VSCode dopo aver configurato opportunamente il collegamento con il GDB. La nostra estensione 
+si occuperà di inviare comandi per la visualizzazione dei processi attualmente in esecuzione e mostrare i dati in una webview di VSCode.
 
 \begin{figure}[H]
     \centering
@@ -9,9 +9,9 @@ si occuperà di inviare comandi per la visualizzazione dei processi attualemnte 
     \label{fig:dap dp and extension}
 \end{figure}
 
-Prima di istaurare un collegamento con il GDB vi é la necessitá di compilare ed eseguire il nucleo nella macchina QEMU. VSCode mette a disposizione il file \codeword{./vscode/task.json} all'interno della directory di lavoro. Il file permette di dichiarare dei comandi che permettono di automatizzare una moltitudine di operazioni.
+Prima di instaurare un collegamento con il GDB vi è la necessità di compilare ed eseguire il nucleo nella macchina QEMU. VSCode mette a disposizione il file \codeword{./vscode/task.json} all'interno della cartella di lavoro. Il file permette di dichiarare dei comandi che permettono di automatizzare una moltitudine di operazioni.
 \subsection*{task.json}
-Il file \codeword{task.json}, come si puó evincere dall'estensione, é in formato \codeword{JSON}. I campi che lo compongono sono spiegati esaustivamente all'interno della pagina dedicata della documentazione di VSCode \cite{VSCodeTasks}. In particolare si é configurato il file per eseguire i comandi di \codeword{compile} e \codeword{boot} presenti nell'ambiente di sviluppo Linux.  
+Il file \codeword{task.json} è in formato \codeword{JSON}. I campi che lo compongono sono spiegati esaustivamente all'interno della pagina dedicata della documentazione di VSCode \cite{VSCodeTasks}. In particolare si è configurato il file per eseguire i comandi di \codeword{compile} e \codeword{boot} presenti nell'ambiente di sviluppo Linux.  
 
 \subsubsection*{compilazione}   
 
@@ -35,7 +35,7 @@ Il file \codeword{task.json}, come si puó evincere dall'estensione, é in forma
     \caption{Avvio in modalità debug}
 \end{figure}
 
-Il task di avvio in modalità debug di QEMU del nucleo richiede un campo aggiuntivo per segnalare a VSCode la terminazione del task. QEMU viene avviato in modalità debug e resta in attesa fina alla connessione del GDB. Il campo \codeword{problemMatcher} é configurato in modo tale da attendere che QEMU segnali l'attesa del GDB tramite la riga di output \codeword{INF Attendo collegamento da gdb} .
+Il task di avvio in modalità debug di QEMU del nucleo richiede un campo aggiuntivo per segnalare a VSCode la terminazione del task. QEMU viene avviato in modalità debug e resta in attesa fino alla connessione del GDB. Il campo \codeword{problemMatcher} è configurato in modo tale da attendere che QEMU segnali l'attesa del GDB tramite la riga di output \codeword{INF Attendo collegamento da gdb} .
 
 \section{Build e connessione al nucleo}
 Il prerequisito per il funzionamento dell'estensione è il collegamento al GDB. Per configurarlo è stato creato il file di configurazione \codeword{launch.json} all'interno della cartella \codeword{./.vscode} dell'ambiente di lavoro. 
@@ -49,7 +49,7 @@ Il prerequisito per il funzionamento dell'estensione è il collegamento al GDB. 
 
 \begin{itemize}
     \item \codeword{name}: identifica univocamente il nome della configurazione del debugger
-    \item \codeword{type}: richiede la tipoologia di debugger da utilizzare
+    \item \codeword{type}: richiede la tipologia di debugger da utilizzare
     \item \codeword{request}: richiede di lanciare una nuova istanza del debugger
     \item \codeword{program}: indica quale eseguibile deve lanciare il debugger
     \item \codeword{cwd}: imposta il percorso di lavoro del debugger
@@ -68,27 +68,27 @@ GDB permette inoltre di caricare dei file di configurazione al cui interno sono 
 
 \section{nucleo\textunderscore vscode.py}
 
-Il file \codeword{nucleo_debug.py} contiene la definizione di un nuovo comando per GDB: \codeword{process list}. Il comando é stato creato modificando la struttura dello script \codeword{nucleo.py}. 
+Il file \codeword{nucleo_debug.py} contiene la definizione di un nuovo comando per GDB: \codeword{process list}. Il comando è stato creato modificando la struttura dello script \codeword{nucleo.py}. 
 
 \begin{figure}[H]
     \lstinputlisting[language=python]{code/nucleo.txt}
     \caption{nucleo.py}
 \end{figure}
 
-Il codice é stato modificato in modo tale da costruire come output un oggetto \codeword{JSON}
+Il codice è stato modificato in modo tale da costruire come output un oggetto \codeword{JSON}
 
 \begin{figure}[H]
     \lstinputlisting[language=python]{code/nucleo_vscode.txt}
     \caption{nucleo\textunderscore vscode.py}
 \end{figure}
 
-Il comando \codeword{process list} restituisce la lista di tutti i processi in esecuzione e le infomazioni relative al contesto del processo.
+Il comando \codeword{process list} restituisce la lista di tutti i processi in esecuzione e le informazioni relative al contesto del processo.
 
 \section{Estensione Nucleo Debug}
-Il funzionamento generale dell'estensione si basa sull'ascoltare quando VSCode avvia una sessione di debug. Una volta avviato il debug viene caricata una webview, questa viene aggiornata ad intervalli regolari lanciando i comandi personalizzati di GDB e formattando in HTML il risultato ottenuto dal debugger. 
+Il funzionamento generale dell'estensione si basa sull'ascoltare quando VSCode avvia una sessione di debug. Una volta avviato il debug viene caricata una webview, questa viene aggiornata a intervalli regolari lanciando i comandi personalizzati di GDB e formattando in HTML il risultato ottenuto dal debugger. 
 
 \subsection{Creazione dell'estensione}
-Dopo aver inizializzato l'ambiente di sviluppo per un estensione di VSCode grazie a \codeword{yeoman}, si procede alla configurazione al file di descrizione dell'estensione \codeword{package.json}. All'interno si possono definire vari campi tra cui:
+Dopo aver inizializzato l'ambiente di sviluppo per un estensione di VSCode grazie a \codeword{yeoman}, si procede alla configurazione del file di descrizione dell'estensione \codeword{package.json}. All'interno si possono definire vari campi tra cui:
 
 \begin{itemize}
     \item \codeword{name}: identifica univocamente il nome dell'estensione
@@ -99,7 +99,7 @@ Dopo aver inizializzato l'ambiente di sviluppo per un estensione di VSCode grazi
 in particolare \codeword{activationEvents} è stato popolato con l'evento \linebreak \codeword{onDebugResolve:cppdbg}, che permette di caricare l'estensione solo quando viene attivato il debug con tipo \codeword{cppdbg}.
 
 \subsection{Caricamento dell'estensione}
-Al momento del caricamento dell'estensione VSCode dall file principale \linebreak \codeword{extension.ts} chiama la funzione \codeword{activate()} al quale interno posizioniamo il codice di inizializzazione. 
+VSCode, durante caricamento dell'estensione cerca nel file principale, \linebreak \codeword{extension.ts}, la funzione \codeword{activate()} e la chiama. All'intero della funzione è possibile trovare il codice di inizializzazione per le funzionalitá aggiuntive di debug.
 
 \begin{figure}[H]
     \lstinputlisting[language=JavaScript]{code/activation.txt}
@@ -126,19 +126,19 @@ All'interno del costruttore di \codeword{NucleoInfo} impostiamo un intervallo tr
     \caption{NucleoInfo.customCommand()}
 \end{figure}
 
-La funzione \codeword{customCommand(...)} preleva il frame di esecuzione del nucleo da GDB e dopo aver costruito il comando da eseguire crea una richiesta al Debug Adapter tramite il metodo \codeword{.customRequest}, il quale istanzia una classe \codeword{ProtocolMessage} definita dal Debug Adapter Protocol di tipo \codeword{request} per richiedere l'esecuzione del commando da parte del GDB. 
+La funzione \codeword{customCommand(...)} preleva il frame di esecuzione del Nucleo da GDB e dopo aver costruito il comando da eseguire crea una richiesta al Debug Adapter tramite il metodo \codeword{.customRequest}, il quale istanza una classe \codeword{ProtocolMessage} definita dal Debug Adapter Protocol di tipo \codeword{request} per richiedere l'esecuzione del commando da parte del GDB. 
 
 \subsection{Webview}
-Dopo aver recuperato tutte le informazioni del nucleo necessarie viene chiamato il metodo \codeword{_getHTMLForWebview()}. 
+Dopo aver recuperato tutte le informazioni del Nucleo necessarie viene chiamato il metodo \codeword{_getHTMLForWebview()}. 
 
 \begin{figure}[H]
     \lstinputlisting[language=JavaScript]{code/htmlconstruct.txt}
     \caption{NucleoInfo.\textunderscore getHTMLforwebview}
 \end{figure}
 
-Per costruire la pagina HTML che verrà caricata dalla webview utilizziamo la libreria di templating \codeword{handlebars}. Prima di poter utilizzare i dati, essi devono essere convertiti in una stuttura JSON e creato il codice HTML per la visualizzione, utilizziamo la funzione creata appositamente \codeword{formatProcessList()}, non riportata per la sua lunghezza ma disponibile nella repository del progetto \cite{formatProcessList}. 
+Per costruire la pagina HTML che verrà caricata dalla webview utilizziamo la libreria di templating \codeword{handlebars}. Tale libreria permette di sbrogliare il JSON ricevuto e creare dinamicamente il codice HTML per la visualizzazione dei dati. 
 
-Il codice HTML generato viene assegnato alla webview che si preoccupa di renderizzare la pagina ottenendo il seguente risultato
+Il codice HTML generato viene assegnato alla webview che si preoccupa di disegnare la pagina ottenendo il risultato mostrato in figura
  
 \begin{figure}[H]    
     \centering

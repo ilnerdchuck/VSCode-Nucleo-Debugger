@@ -1,5 +1,5 @@
 \chapter{Utilizzo del debugger}
-Introduciamo ora come é possibile utilizzare l'ambiente di debug di VSCode per eseguire il debug del nucleo. È possibile avviare l'interfaccia di debug tramite l'apposita scheda \ref{fig:startDebug} (pin 1) e poi dopo aver selezionato la configurazione \codeword{launch nmd}  dal menù a tendina \ref{fig:startDebug} (pin 2)si avvia la sessione premendo il tasto di avvio collocato accanto allo stesso menù.  
+È possibile avviare l'interfaccia di debug tramite l'apposita scheda \ref{fig:startDebug} (pin 1) e poi dopo aver selezionato la configurazione \codeword{launch nmd}  dal menù a tendina \ref{fig:startDebug} (pin 2)si avvia la sessione premendo il tasto di avvio collocato accanto allo stesso menù.  
 
 \begin{figure}[H]
     \centering
@@ -10,7 +10,7 @@ Introduciamo ora come é possibile utilizzare l'ambiente di debug di VSCode per 
 
 oppure premendo il tasto \codeword{F5} sulla tastiera.
 
-l'interfaccia che ci viene presentata é la seguente 
+L'interfaccia che ci viene presentata è la seguente 
 
 \begin{figure}[H]
     \centering
@@ -22,7 +22,7 @@ l'interfaccia che ci viene presentata é la seguente
 Analizziamo le varie finestre che ci vengono proposte.
 
 \section{Breakpoint e Logpoint}
-All'interno di VSCode vi é la possibilità di inserire breakpoint cliccando sul lato sinistro della riga di codice interessata, VSCode stesso si occuperá poi di comunicare al Debug Adapter la richiesta di inserimento del breakpoint.
+Nella vista del codice sorgente è possibile inserire un breakpoint premendo sul lato sinistro del numeri di rigainteressato, VSCode stesso si occuperà poi di comunicare al Debug Adapter la richiesta di inserimento del breakpoint.
 
 \begin{figure}[H]
     \centering
@@ -31,7 +31,7 @@ All'interno di VSCode vi é la possibilità di inserire breakpoint cliccando sul
     \label{fig:breakpoint}
 \end{figure}
 
-Similarmente si può inserire un logpoint cliccando con il tasto destro del mouse e selezionando la dicitura logpoint. All'interno del box di testo si possono aggiungere le variabili da osservare tramite \codeword{{{variable}}}
+Similarmente si può inserire un logpoint premendo con il tasto destro del mouse e selezionando la dicitura logpoint. All'interno del box di testo si possono aggiungere le variabili da osservare tramite \codeword{{{variable}}}
 
 \begin{figure}[H]
     \centering
@@ -53,7 +53,7 @@ VSCode mette a disposizione una barra di funzioni \ref*{fig:middleDebug}(pin 1) 
     \label{fig:middleDebug}
 \end{figure}
 
-Inoltre é possibile inviare comandi di GDB direttamente dalla linea di comando \ref*{fig:middleDebug}(pin 2) tramite il comando \codeword{-exec [GDB command]}.
+Inoltre è possibile inviare comandi di GDB direttamente dalla linea di comando \ref*{fig:middleDebug}(pin 2) tramite il comando \codeword{-exec [GDB command]}.
 
 \section{Pannello di sinistra}
 
@@ -67,7 +67,7 @@ Il pannello di sinistra permette di analizzare lo stato delle variabili locali \
 \end{figure}
 
 \subsection*{Watch}
-Nel pannello dedicato \ref*{fig:leftDebug}(pin 4) possiamo visualizzare le variabili messe sotto osservazione. L'aggiunta puó avvenire tramite il pulsante "+" oppure selezionando con il cursore la variabile o l'espressione da analizzare e cliccando con il tasto destro dal menú a tendina selezionare "Add to watch" come mostrato in figura.
+Nel pannello dedicato \ref*{fig:leftDebug}(pin 4) possiamo visualizzare le variabili messe sotto osservazione. L'aggiunta può avvenire tramite il pulsante "+" oppure selezionando con il cursore la variabile o l'espressione da analizzare e cliccando con il tasto destro dal menù a tendina selezionare "Add to watch" come mostrato in figura.
 
 \begin{figure}[H]
     \centering
@@ -81,8 +81,8 @@ Nel pannello dedicato \ref*{fig:leftDebug}(pin 4) possiamo visualizzare le varia
 
 \section{Informazioni aggiuntive}
 
-Sulla parte destra della finestra di debug troviamo la scheda dedicata alle informazioni aggiuntive del nucleo. In questo caso
-mostra solo i processi in secuzione 
+Sulla parte destra della finestra di debug troviamo la scheda dedicata alle informazioni aggiuntive del Nucleo. In questo caso
+mostra solo i processi in esecuzione 
 
 \begin{figure}[H]
     \centering
@@ -92,7 +92,7 @@ mostra solo i processi in secuzione
 \end{figure}
 
 \subsection*{Processi in esecuzione}
-Le informazioni relative ai processi vengono mostrate tramite una lista con elementi selezionabili. Ogni elemento della lista é formato da una rappresentazione tramite \codeword{chiave:valore} e un eventuale campo adiacente con eventuali informazioni sulla tipologia della variabile o oggetto. I processi sono stati divisi per convenienza tra processi di sistema e processi utente. 
+Le informazioni relative ai processi vengono mostrate tramite una lista con elementi selezionabili. Ogni elemento della lista è formato da una rappresentazione tramite \codeword{chiave:valore} e un eventuale campo adiacente con eventuali informazioni sulla tipologia della variabile o oggetto. I processi sono stati divisi per convenienza tra processi di sistema e processi utente. 
 
 
 

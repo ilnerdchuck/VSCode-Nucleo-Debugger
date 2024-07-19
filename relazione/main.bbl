@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -39,10 +39,5 @@ Microsoft.
 Microsoft.
 \newblock Integrate with external tools via tasks, 2024{\natexlab{c}}.
 \newblock URL \url{https://code.visualstudio.com/Docs/editor/tasks}.
-
-\bibitem[mignone(2024)]{formatProcessList}
-Francesco mignone.
-\newblock Vscode nucleo debugger, 2024.
-\newblock URL \url{https://github.com/ilnerdchuck/VSCode-Nucleo-Debugger/blob/main/nucleo-debugger/src/nucleoweb.ts}.
 
 \end{thebibliography}

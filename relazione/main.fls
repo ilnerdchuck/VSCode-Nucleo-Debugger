@@ -840,9 +840,6 @@ INPUT chapters/chapter_01.aux
 INPUT ./chapters/chapter_02.aux
 INPUT chapters/chapter_02.aux
 INPUT chapters/chapter_02.aux
-INPUT ./chapters/chapter_03.aux
-INPUT chapters/chapter_03.aux
-INPUT chapters/chapter_03.aux
 INPUT ./chapters/chapter_04.aux
 INPUT chapters/chapter_04.aux
 INPUT chapters/chapter_04.aux
@@ -993,8 +990,6 @@ INPUT ./chapters/chapter_01.tex
 INPUT chapters/chapter_01.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT ./chapters/chapter_02.tex
 INPUT ./chapters/chapter_02.tex
 INPUT ./chapters/chapter_02.tex
@@ -1005,6 +1000,8 @@ INPUT ./chapters/chapter_02.tex
 INPUT chapters/chapter_02.tex
 INPUT ./chapters/chapter_02.tex
 INPUT chapters/chapter_02.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd
@@ -1049,16 +1046,6 @@ INPUT ./images/cat_coding.png
 INPUT images/cat_coding.png
 INPUT ./images/cat_coding.png
 INPUT ./images/cat_coding.png
-INPUT ./chapters/chapter_03.tex
-INPUT ./chapters/chapter_03.tex
-INPUT ./chapters/chapter_03.tex
-OUTPUT chapters/chapter_03.aux
-INPUT ./chapters/chapter_03.tex
-INPUT ./chapters/chapter_03.tex
-INPUT ./chapters/chapter_03.tex
-INPUT chapters/chapter_03.tex
-INPUT ./chapters/chapter_03.tex
-INPUT chapters/chapter_03.tex
 INPUT ./chapters/chapter_04.tex
 INPUT ./chapters/chapter_04.tex
 INPUT ./chapters/chapter_04.tex
@@ -1259,9 +1246,6 @@ INPUT chapters/chapter_01.aux
 INPUT ./chapters/chapter_02.aux
 INPUT chapters/chapter_02.aux
 INPUT chapters/chapter_02.aux
-INPUT ./chapters/chapter_03.aux
-INPUT chapters/chapter_03.aux
-INPUT chapters/chapter_03.aux
 INPUT ./chapters/chapter_04.aux
 INPUT chapters/chapter_04.aux
 INPUT chapters/chapter_04.aux

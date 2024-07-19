@@ -1,14 +1,14 @@
 \chapter{Conclusione e sviluppi futuri}
-L'utilizzo estensione rende semplice approcciarsi al debug e in particolare al debug del nucleo didattico. Tuttavia l'estensione non è completa, vi sono numerose funzionalitá che possono essere implementate per ampliare le informazioni relative al nucleo come informazioni riguardanti la memoria virtuale o stato dell'APIC.
+L'utilizzo dell'estensione facilita l'approccio al debug e in particolare al Nucleo didattico. Tuttavia l'estensione non è completa, vi sono numerose funzionalità che possono essere implementate per ampliare le informazioni relative al Nucleo, come ad esempio informazioni riguardanti la memoria virtuale o stato dell'APIC.
 
 \chapter{Sviluppo e contributi}
-In questo capitolo spiego come é possibile aggiungere nuove funzionalità all'estensione. È possibile sviluppare l'estensione tramite la macchina virtuale fornita durante il corso, tuttavia si consiglia vivamente di installare il nucleo sulla propria macchina seguendo le istruzioni fornite dal Professor Lettieri\cite{mainsite}, come editor é molto indicato VSCode stesso poiché é configurato per debug e esecuzione delle estensioni.
+In questo capitolo viene spiegato come è possibile aggiungere nuove funzionalità all'estensione. È possibile sviluppare l'estensione tramite la macchina virtuale fornita durante il corso di Calcolatori Elettronici, tuttavia è consigliato vivamente di installare il Nucleo sulla propria macchina seguendo le istruzioni fornite dal Professor Lettieri\cite{mainsite}. Come editor è molto consigliato VSCode stesso in quanto è configurato per debug e esecuzione delle estensioni.
 
 \section*{Installazione}
 Per prima cosa bisogna impostare l'ambiente di sviluppo per l'estensione:
 \begin{itemize}
     \item scaricare la repository del progetto \href{google.com}{Nucleo-Debugger} 
-    \item navigare allinterno della repository
+    \item navigare all'interno della repository
     \item creare la propria branch di sviluppo della feature da implementare tramite \codeword{git}
     \item installare le dipendenze: \codeword{yarn} e \codeword{node}
     \item inizializzare l'ambiente con il comando \codeword{yarn install} e una volta terminato lanciare il comando \codeword{yarn global add vsce} per installare il pacchetto di VSCode per creare il file di installazione dell'estensione
@@ -18,43 +18,43 @@ Per prima cosa bisogna impostare l'ambiente di sviluppo per l'estensione:
 Se eventualmente l'estensione per il debug del nucleo dovesse essere presente tra le estensioni di VSCode bisogna rimuoverla.
 
 \subsection*{Debug e esecuzione}
-È possibile caricare l'estensione in un enviroment separato da quello di sviluppo tramite proprio il debugger di VSCode premendo il tasto \codeword{F5}. Una volta completata la compilazione verrá avviata una nuova finestra di VSCode dove apriamo la cartella di un nucleo, in questo caso possiamo usare \codeword{prova-test} e avviare a sua volta il debug tramite \codeword{F5}.
+È possibile caricare l'estensione in un ambiente separato da quello di sviluppo tramite proprio il debugger di VSCode premendo il tasto \codeword{F5}. Una volta completata la compilazione verrà avviata una nuova finestra di VSCode dove apriamo la cartella del Nucleo, in questo caso possiamo usare \codeword{prova-test} e avviare a sua volta il debug tramite \codeword{F5}.
 
 \section{Aggiunta di comandi}
 Per aggiungere comandi bisogna modificare il file \codeword{NucleoInfo.ts} nelle sezioni indicate:
 \begin{itemize}
     \item {
-        se vi é la necessitá di ricevere dati da GDB bisogna dichiarare una variabile di supporto.
+        se vi è la necessità di ricevere dati da GDB bisogna dichiarare una variabile di supporto.
         \begin{figure}[H]
             \lstinputlisting[language=JavaScript]{code/var.txt}
             \caption{Variabile di supporto per i dati}
         \end{figure}
     }
     \item {
-        Per eseguire un comando é necessario chiamare la funzione \linebreak \codeword{.customCommand(args ...)} e se si devono ricevere dati assegnarli alla relativa variabiel di appoggio.
+        Per eseguire un comando è necessario chiamare la funzione \linebreak \codeword{.customCommand(args ...)} e se si devono ricevere dati dal GDB si può assegnare il valore di ritorno della funzione alla relativa variabile di appoggio.
         \begin{figure}[H]
             \lstinputlisting[language=JavaScript]{code/command_exec.txt}
             \caption{Richiesta di esecuzione del comando}
         \end{figure}
     }
     \item {
-        Per aggiornare la webview bisogna aggiungere all'HTML giá presente il proprio tramite  una funzione di appoggio che si occupa di formattare i dati (es. \codeword{this.YOUR_FORMATTER()})
+        Per aggiornare la webview bisogna aggiungere all'HTML già presente il proprio tramite  una funzione di appoggio che si occupa di formattare i dati (es. \codeword{this.YOUR_FORMATTER()})
         \begin{figure}[H]
             \lstinputlisting[language=JavaScript]{code/getHTML.txt}
             \caption{Costruzione della pagina HTML}
         \end{figure}
     }
     \item {
-        il formattatore deve creare il codice HTML da incormporare nella funzione \codeword{_getHtmlForWebview()} per mostrare correttamente i dati
+        il formattatore deve creare il codice HTML da incorporare nella funzione \codeword{_getHtmlForWebview()} per mostrare correttamente i dati
         \begin{figure}[H]
             \lstinputlisting[language=JavaScript]{code/formatter.txt}
             \caption{Implementazione di un formattatore}
         \end{figure}
-        come spiegato in seguito, le strutture per lo scambio di informazioni sono a discrezione del programmatore, tuttavia si consiglia l'utilizzo del formato \codeword{JSON} per faciliare la visualizzazione tramite il tool di templating handlebars\cite{handlebars}.
+        Le strutture per lo scambio di informazioni sono a discrezione del programmatore, tuttavia si consiglia l'utilizzo del formato \codeword{JSON} per facilitare la visualizzazione tramite il tool di templating handlebars\cite{handlebars}.
     }
 \end{itemize}
 \subsection{nucleo\textunderscore vscode.py}
-All'interno del file \codeword{nucleo_vscode.py} bisogna implementare il nuovo comando richiesto dall'estensione. Per l'effettiva implementazione del comando dipende dalla funzione che si vuole aggiungere, si faccia riferimento alla guida per lo scripting di GDB\cite{GDBpython} e al file \codeword{./debug/nucleo.py} all'interno di una delle versioni del nucleo presenti sul sito del Professor Lettieri \cite{testiEsame}. 
+All'interno del file \codeword{nucleo_vscode.py} bisogna implementare il nuovo comando richiesto dall'estensione. Per l'effettiva implementazione del comando dipende dalla funzione che si vuole aggiungere, si faccia riferimento alla guida per lo scripting di GDB\cite{GDBpython} e al file \codeword{./debug/nucleo.py} all'interno di una delle versioni del nucleo presenti sul sito del Professor Lettieri \cite{testiEsame}.  
 
 % \href[options]{https://github.com/microsoft/vscode-cpptools/blob/main/Documentation/Building%20the%20Extension.md}{Build istructions microsoft}
 
