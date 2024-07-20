@@ -1,0 +1,59 @@
+# name: Release all pdf
+# on: 
+#     release:
+#       types:
+#         - created
+    
+# jobs:
+#   build_latex:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Set up Git repository
+#         uses: actions/checkout@v2
+#       - name: Compile LaTeX document
+#         uses: dante-ev/latex-action@latest
+#         with:
+#           working_directory: comunicazioni_numeriche/
+#           root_file: main.tex
+          
+#       - run: mkdir out/
+#       - run: mv comunicazioni_numeriche/main.pdf out/Comunicazioni_Numeriche.pdf
+      
+
+
+name: Release VSIX
+on: 
+    release:
+      types:
+        - created
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: yarn install
+      working-directory: nucleo-debugger
+    - name: Install vsce
+      run: yarn global add vsce  
+      working-directory: nucleo-debugger
+
+    - name: Build VSIX package
+      run: vsce package
+      working-directory: nucleo-debugger
+      
+    - name: Release build-artifacts
+      uses: skx/github-action-publish-binaries@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          args: "./nucleo-debugger/*.vsix"
