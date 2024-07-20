@@ -274,9 +274,9 @@ or 'all' (default, show all processes)."""
         out['process'] = []
         for pid, proc in process_list(arg):
             out['process'].append(process_dump(pid, proc, indent=4, verbosity=0))
-        with open('myfile.txt', 'w') as f:
-            f.write(json.dumps(out))
-        gdb.write(json.dumps(out) + "\n")
+        # with open('myfile.txt', 'w') as f:
+        #     f.write(json.dumps(out))
+        # gdb.write(json.dumps(out) + "\n")
         
 
 Process()

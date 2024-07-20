@@ -46,10 +46,6 @@ li{
 }
 
 
-.toggle > .key:hover{
-	color: aqua;
-}
-
 .value{
 	color: var(--vscode-debugTokenExpression-number);
 }
@@ -66,7 +62,6 @@ li{
 }
 
 .toggle:hover {
-	color: aqua;
 	cursor: pointer; 
 }
 
