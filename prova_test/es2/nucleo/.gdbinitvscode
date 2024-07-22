@@ -17,7 +17,7 @@ set print array on
 set pagination off
 file build/sistema
 source util/start.gdb
-add-symbol-file /home/chuck/CE/lib/ce/boot.bin
+add-symbol-file /home/studenti/CE/lib/ce/boot.bin
 add-symbol-file build/io
 add-symbol-file build/utente
 set arch i386:x86-64:intel

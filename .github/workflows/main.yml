@@ -36,7 +36,7 @@ jobs:
     
     - run: mv ./prova_test/es2/nucleo/.vscode/launch.json out/
     
-    - run: mv ./prova_test/es2/nucleo/gdbinitvscode out/
+    - run: mv ./prova_test/es2/nucleo/.gdbinitvscode out/
     
     - name: Release build-artifacts
       uses: skx/github-action-publish-binaries@master
