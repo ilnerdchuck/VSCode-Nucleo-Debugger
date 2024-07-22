@@ -1,26 +1,3 @@
-# name: Release all pdf
-# on: 
-#     release:
-#       types:
-#         - created
-    
-# jobs:
-#   build_latex:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Set up Git repository
-#         uses: actions/checkout@v2
-#       - name: Compile LaTeX document
-#         uses: dante-ev/latex-action@latest
-#         with:
-#           working_directory: comunicazioni_numeriche/
-#           root_file: main.tex
-          
-#       - run: mkdir out/
-#       - run: mv comunicazioni_numeriche/main.pdf out/Comunicazioni_Numeriche.pdf
-      
-
-
 name: Release VSIX
 on: 
     release:
@@ -50,10 +27,18 @@ jobs:
     - name: Build VSIX package
       run: vsce package
       working-directory: nucleo-debugger
-      
+    
+    - run: mkdir out/
+    
+    - run: mv nucleo-debugger/*.vsix out/
+    
+    - run: mv prova-test/es2/nucleo/.vscode/task.json out/ 
+    
+    - run: mv prova-test/es2/nucleo/.vscode/launch.json out/
+    
     - name: Release build-artifacts
       uses: skx/github-action-publish-binaries@master
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          args: "./nucleo-debugger/*.vsix"
+          args: "./out/*"
