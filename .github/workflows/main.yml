@@ -32,9 +32,9 @@ jobs:
     
     - run: mv nucleo-debugger/*.vsix out/
     
-    - run: mv prova-test/es2/nucleo/.vscode/task.json out/ 
+    - run: mv prova_test/es2/nucleo/.vscode/task.json out/ 
     
-    - run: mv prova-test/es2/nucleo/.vscode/launch.json out/
+    - run: mv prova_test/es2/nucleo/.vscode/launch.json out/
     
     - name: Release build-artifacts
       uses: skx/github-action-publish-binaries@master
