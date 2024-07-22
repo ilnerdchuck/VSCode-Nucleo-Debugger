@@ -38,7 +38,7 @@ jobs:
     
     - run: mv ./prova_test/es2/nucleo/.gdbinitvscode out/gdbinitvscode
     
-    - run: mv ./prova_test/es2/nucleo/debug/vscode_nucleo.py out/gdbinitvscode
+    - run: mv ./prova_test/es2/nucleo/debug/vscode_nucleo.py out/
     
     - name: Release build-artifacts
       uses: skx/github-action-publish-binaries@master
